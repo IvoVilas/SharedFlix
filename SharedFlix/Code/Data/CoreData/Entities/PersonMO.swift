@@ -10,13 +10,13 @@ import CoreData
 
 class PersonMO: NSManagedObject {
 
-  @NSManaged var id: Int64
+  @NSManaged var id: String
   @NSManaged var name: String
 
   @NSManaged var participants: Set<ParticipantMO>
 
   convenience init?(
-    id: Int64,
+    id: String = UUID().uuidString,
     name: String,
     moc: NSManagedObjectContext
   ) {

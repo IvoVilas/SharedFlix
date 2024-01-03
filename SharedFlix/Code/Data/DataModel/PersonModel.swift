@@ -9,7 +9,7 @@ import Foundation
 
 struct PersonModel {
 
-  let id: Int64
+  let id: String
   let name: String
 
   static func from(_ entity: PersonMO) -> PersonModel {

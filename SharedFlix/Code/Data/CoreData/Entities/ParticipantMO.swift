@@ -18,7 +18,6 @@ class ParticipantMO: NSManagedObject {
   @NSManaged var bill: BillMO
 
   convenience init?(
-    id: Int64,
     isOwner: Bool,
     paidUntil: Date?,
     person: PersonMO,
@@ -33,12 +32,17 @@ class ParticipantMO: NSManagedObject {
 
     self.init(entity: entity, insertInto: moc)
 
-    self.id        = id
+    self.id        = generateUniqueID()
     self.isOwner   = isOwner
     self.paidUntil = paidUntil
 
     self.person = person
     self.bill   = bill
+  }
+
+  private func generateUniqueID() -> Int64 {
+    let timestamp = Int64(Date().timeIntervalSince1970 * 1000)
+    return timestamp
   }
 
 

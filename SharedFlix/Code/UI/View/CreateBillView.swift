@@ -15,7 +15,7 @@ struct CreateBillView: View {
   @ObservedObject var viewModel: CreateBillViewModel
 
   var body: some View {
-    NavigationView {
+    ScrollView {
       VStack(alignment: .leading, spacing: 24) {
         Text("Create new expense")
           .applyMediumTextStyle(.xl4, Theme.ColorPallete.Blue.v500)
@@ -34,25 +34,30 @@ struct CreateBillView: View {
         )
       }
       .padding(all: 24)
-      .toolbar(.hidden, for: .automatic)
+      .background(Theme.ColorPallete.White.v100)
+      .clipShape(RoundedRectangle(cornerRadius: 20))
       .sheet(isPresented: $viewModel.showPatientsScreen) {
-        // On dismiss code
+        viewModel.availablePeopleViewModel.callCompletion()
       } content: {
-        Text("Hello world!")
+        AvailablePeopleView(viewModel: viewModel.availablePeopleViewModel)
       }
+      .background(Theme.ColorPallete.White.v100)
+      .clipShape(RoundedRectangle(cornerRadius: 20))
     }
-    .background(Theme.ColorPallete.White.v100)
-    .clipShape(RoundedRectangle(cornerRadius: 20))
+    .scrollIndicators(.hidden)
   }
 
 }
 
 #Preview {
-
   ScrollView {
     Spacer().frame(height: 72)
 
-    CreateBillView(viewModel: CreateBillViewModel())
+    CreateBillView(
+      viewModel: CreateBillViewModel(
+        moc: PersistenceController.preview.container.viewContext
+      )
+    )
   }
   .background(Theme.ColorPallete.Gray.v900)
 

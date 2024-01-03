@@ -15,12 +15,13 @@ struct HomePageView: View {
   @State private var isExpanded  = false
   @State private var isRemoving  = false
   @State private var isCreating  = false
-
+  
   var body: some View {
     NavigationStack {
       VStack(spacing: 0) {
         Text("SharedFlix")
           .applyMediumTextStyle(.xl6, Theme.ColorPallete.Red.v800)
+          .growHorizontally(alignment: .center)
 
         ZStack {
           ScrollView {

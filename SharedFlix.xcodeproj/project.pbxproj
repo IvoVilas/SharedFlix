@@ -55,6 +55,8 @@
 		1E709AFB2B304F7D00D6EC5E /* InputFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AFA2B304F7D00D6EC5E /* InputFormView.swift */; };
 		1E709AFD2B304FF900D6EC5E /* InputFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AFC2B304FF900D6EC5E /* InputFormViewModel.swift */; };
 		1E709AFF2B30501300D6EC5E /* CreateBillViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AFE2B30501300D6EC5E /* CreateBillViewModel.swift */; };
+		1E709B032B30597D00D6EC5E /* AvailablePeopleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709B022B30597D00D6EC5E /* AvailablePeopleView.swift */; };
+		1E709B052B305B0100D6EC5E /* AvailablePeopleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709B042B305B0100D6EC5E /* AvailablePeopleViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -126,6 +128,8 @@
 		1E709AFA2B304F7D00D6EC5E /* InputFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFormView.swift; sourceTree = "<group>"; };
 		1E709AFC2B304FF900D6EC5E /* InputFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFormViewModel.swift; sourceTree = "<group>"; };
 		1E709AFE2B30501300D6EC5E /* CreateBillViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBillViewModel.swift; sourceTree = "<group>"; };
+		1E709B022B30597D00D6EC5E /* AvailablePeopleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailablePeopleView.swift; sourceTree = "<group>"; };
+		1E709B042B305B0100D6EC5E /* AvailablePeopleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvailablePeopleViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,6 +307,7 @@
 				1E709AA52B2A84AF00D6EC5E /* HomePageView.swift */,
 				1E709AF42B2C67C100D6EC5E /* BillView.swift */,
 				1E709AF22B2C611400D6EC5E /* CreateBillView.swift */,
+				1E709B022B30597D00D6EC5E /* AvailablePeopleView.swift */,
 				1E709AE82B2B6A1300D6EC5E /* FloatingButtonView.swift */,
 				1E709AFA2B304F7D00D6EC5E /* InputFormView.swift */,
 			);
@@ -363,6 +368,7 @@
 				1E709AE02B2B254800D6EC5E /* HomePageViewModel.swift */,
 				1E709ADB2B2B1D4300D6EC5E /* BillViewModel.swift */,
 				1E709AFE2B30501300D6EC5E /* CreateBillViewModel.swift */,
+				1E709B042B305B0100D6EC5E /* AvailablePeopleViewModel.swift */,
 				1E709AFC2B304FF900D6EC5E /* InputFormViewModel.swift */,
 			);
 			path = ViewModel;
@@ -524,7 +530,9 @@
 				1E709AF52B2C67C100D6EC5E /* BillView.swift in Sources */,
 				1E709AAB2B2B07F400D6EC5E /* ParticipantModel.swift in Sources */,
 				1E709ADC2B2B1D4300D6EC5E /* BillViewModel.swift in Sources */,
+				1E709B032B30597D00D6EC5E /* AvailablePeopleView.swift in Sources */,
 				1E709AE12B2B254800D6EC5E /* HomePageViewModel.swift in Sources */,
+				1E709B052B305B0100D6EC5E /* AvailablePeopleViewModel.swift in Sources */,
 				1E709AEB2B2B761F00D6EC5E /* TextField+Geomanist.swift in Sources */,
 				1E709AF92B304F1600D6EC5E /* Views.swift in Sources */,
 				1E709AC72B2B0E9600D6EC5E /* Text+Geomanist.swift in Sources */,

@@ -82,6 +82,7 @@ struct InputListFormView<Item: InputListItem>: View {
           }
         }
       }
+      .scrollIndicators(.hidden)
       .background(Theme.ColorPallete.Gray.v200)
       .clipShape(RoundedRectangle(cornerRadius: 8))
     }
@@ -98,7 +99,7 @@ struct InputListFormView<Item: InputListItem>: View {
       )
     )
 
-    InputListFormView<ParticipantModel>(
+    InputListFormView<CreateBillViewModel.TemporaryParticipant>(
       viewModel: InputListFormViewModel(
         title: "Participants",
         addTitle: "Add participant"

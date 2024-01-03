@@ -131,7 +131,7 @@ extension HomePageViewModel {
 extension HomePageViewModel {
 
   func makeCreateBillViewModel() -> CreateBillViewModel {
-    return CreateBillViewModel()
+    return CreateBillViewModel(moc: moc)
   }
 
 }

@@ -16,7 +16,7 @@ struct PersistenceController {
     let viewContext = result.container.viewContext
 
     makeData(
-      id: 1,
+      id: "1",
       billName: "Netflix",
       billValue: 14,
       personName: "Ivo",
@@ -24,10 +24,58 @@ struct PersistenceController {
     )
 
     makeData(
-      id: 2,
+      id: "2",
       billName: "Prenda",
       billValue: 70,
       personName: "Diana",
+      moc: viewContext
+    )
+
+    _ = PersonMO(
+      id: "3",
+      name: "Marcos",
+      moc: viewContext
+    )
+
+    _ = PersonMO(
+      id: "4",
+      name: "Sofia",
+      moc: viewContext
+    )
+
+    _ = PersonMO(
+      id: "5",
+      name: "Diogo",
+      moc: viewContext
+    )
+
+    _ = PersonMO(
+      id: "6",
+      name: "Inês",
+      moc: viewContext
+    )
+
+    _ = PersonMO(
+      id: "7",
+      name: "Cátia",
+      moc: viewContext
+    )
+
+    _ = PersonMO(
+      id: "8",
+      name: "João",
+      moc: viewContext
+    )
+
+    _ = PersonMO(
+      id: "9",
+      name: "André",
+      moc: viewContext
+    )
+
+    _ = PersonMO(
+      id: "10",
+      name: "Pedro",
       moc: viewContext
     )
 
@@ -35,14 +83,13 @@ struct PersistenceController {
   }()
 
   static func makeData(
-    id: Int64,
+    id: String,
     billName: String,
     billValue: Double,
     personName: String,
     moc: NSManagedObjectContext
   ) {
     let bill = BillMO(
-      id: id,
       name: billName,
       value: 14,
       cycle: .monthly,
@@ -58,7 +105,6 @@ struct PersistenceController {
 
     let participants = [
       ParticipantMO(
-        id: id,
         isOwner: false,
         paidUntil: Date(),
         person: person,
@@ -74,7 +120,7 @@ struct PersistenceController {
     } catch {
       let nsError = error as NSError
 
-      fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+      debugPrint("Unresolved error \(nsError), \(nsError.userInfo)")
     }
   }
 
@@ -89,7 +135,7 @@ struct PersistenceController {
 
     container.loadPersistentStores(completionHandler: { (storeDescription, error) in
       if let error = error as NSError? {
-        fatalError("Unresolved error \(error), \(error.userInfo)")
+        debugPrint("Unresolved error \(error), \(error.userInfo)")
       }
     })
 

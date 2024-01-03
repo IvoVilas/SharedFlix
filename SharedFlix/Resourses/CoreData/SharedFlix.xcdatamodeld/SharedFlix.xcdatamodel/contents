@@ -23,7 +23,7 @@
         <relationship name="person" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="participants" inverseEntity="Person"/>
     </entity>
     <entity name="Person" representedClassName=".PersonMO" syncable="YES">
-        <attribute name="id" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
         <relationship name="participants" toMany="YES" deletionRule="Cascade" destinationEntity="Participant" inverseName="person" inverseEntity="Participant"/>
     </entity>

@@ -8,9 +8,8 @@
 import Foundation
 import SwiftUI
 
-protocol InputListItem {
+protocol InputListItem: Identifiable {
 
-  var id: Int64 { get }
   var name: String { get }
 
 }
@@ -42,7 +41,7 @@ final class InputListFormViewModel<Item: InputListItem>: ObservableObject {
   let title: String
   let actionTitle: String
 
-  @State var items: [Item]
+  @Published var items: [Item]
 
   var action: (() -> Void)?
 
@@ -54,6 +53,10 @@ final class InputListFormViewModel<Item: InputListItem>: ObservableObject {
     self.title       = title
     self.actionTitle = addTitle
     self.items       = items
+  }
+
+  func setItems(_ items: [Item]) {
+    self.items = items
   }
 
 }
