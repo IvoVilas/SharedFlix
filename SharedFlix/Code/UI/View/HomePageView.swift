@@ -17,46 +17,60 @@ struct HomePageView: View {
 
 struct BillView: View {
 
-  @State var bill: BillModel
+  @ObservedObject var viewModel: BillViewModel
 
   var body: some View {
     ScrollView {
-      VStack(alignment: .leading) {
-        Text(bill.name)
+      HStack {
+        VStack(alignment: .leading, spacing: 16) {
+          Text(viewModel.name)
+            .applyMediumTextStyle(.xl, Theme.ColorPallete.Gray.v800)
 
-        Text("\(bill.value)")
+          Text(viewModel.value)
+            .applyBookTextStyle(.l, Theme.ColorPallete.Gray.v700)
 
-        Text("\(bill.participants.count)")
+          Text(viewModel.participants)
+            .applyBookTextStyle(.l, Theme.ColorPallete.Gray.v700)
 
-        Text("0€ owned")
+          Text(viewModel.ownedValue)
+            .applyBookTextStyle(.l, Theme.ColorPallete.Gray.v700)
+        }
+
+        Spacer()
       }
-      .padding()
-      .background(Theme.ColorPallete.Gray.v400)
-      .shadow(radius: 12)
+      .padding(all: 24)
+      .background(Theme.ColorPallete.Blue.v600)
+      .clipShape(RoundedRectangle(cornerRadius: 20))
     }
+    .padding(horizontal: 36)
   }
 
 }
 
 #Preview {
-  BillView(
-    bill: BillModel(
-      id: 0,
-      name: "Netlfix",
-      value: 14.0,
-      cycle: .monthly,
-      participants: [
-        ParticipantModel(
-          id: 0,
-          isOwner: true,
-          paidUntil: Date(),
-          person: PersonModel(
+  let systemDateTime = SystemDateTime()
+
+  return BillView(
+    viewModel: BillViewModel(
+      systemDateTime: systemDateTime,
+      bill: BillModel(
+        id: 0,
+        name: "Netflix",
+        value: 14.0,
+        cycle: .monthly,
+        participants: [
+          ParticipantModel(
             id: 0,
-            name: "Ivo"
+            isOwner: true,
+            paidUntil: systemDateTime.makeDate(day: 31, month: 10, year: 2023),
+            person: PersonModel(
+              id: 0,
+              name: "Ivo"
+            )
           )
-        )
-      ],
-      logs: []
+        ],
+        logs: []
+      )
     )
   )
 }

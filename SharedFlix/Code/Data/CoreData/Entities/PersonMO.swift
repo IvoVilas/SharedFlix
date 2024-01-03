@@ -21,7 +21,7 @@ class PersonMO: NSManagedObject {
     moc: NSManagedObjectContext
   ) {
     guard
-      let entity = SharedFlixDatabase.EntityDescription.person(moc)
+      let entity = NSEntityDescription.entity(forEntityName: "Person", in: moc)
     else {
       return nil
     }

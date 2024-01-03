@@ -26,7 +26,7 @@ class ParticipantMO: NSManagedObject {
     moc: NSManagedObjectContext
   ) {
     guard
-      let entity = SharedFlixDatabase.EntityDescription.participant(moc)
+      let entity = NSEntityDescription.entity(forEntityName: "Participant", in: moc)
     else {
       return nil
     }

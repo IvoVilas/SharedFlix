@@ -14,7 +14,6 @@
 		1E3332132B2A334800666400 /* SharedFlixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3332122B2A334800666400 /* SharedFlixUITests.swift */; };
 		1E3332152B2A334800666400 /* SharedFlixUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3332142B2A334800666400 /* SharedFlixUITestsLaunchTests.swift */; };
 		1E709A962B2A3A0F00D6EC5E /* PersonMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709A952B2A3A0F00D6EC5E /* PersonMO.swift */; };
-		1E709A982B2A3AA900D6EC5E /* SharedFlixDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709A972B2A3AA900D6EC5E /* SharedFlixDatabase.swift */; };
 		1E709A9A2B2A3DDA00D6EC5E /* ParticipantMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709A992B2A3DDA00D6EC5E /* ParticipantMO.swift */; };
 		1E709A9C2B2A3E0300D6EC5E /* BillMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709A9B2B2A3E0300D6EC5E /* BillMO.swift */; };
 		1E709A9E2B2A3E2400D6EC5E /* LogMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709A9D2B2A3E2400D6EC5E /* LogMO.swift */; };
@@ -33,6 +32,15 @@
 		1E709AC32B2B0E2600D6EC5E /* Geomanist-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1E709ABF2B2B0E2600D6EC5E /* Geomanist-Book.otf */; };
 		1E709AC42B2B0E2600D6EC5E /* Geomanist-BookItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1E709AC02B2B0E2600D6EC5E /* Geomanist-BookItalic.otf */; };
 		1E709AC72B2B0E9600D6EC5E /* Text+Geomanist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AC62B2B0E9600D6EC5E /* Text+Geomanist.swift */; };
+		1E709AC92B2B10A800D6EC5E /* View+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AC82B2B10A800D6EC5E /* View+Padding.swift */; };
+		1E709ACB2B2B11B500D6EC5E /* View+Frame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709ACA2B2B11B500D6EC5E /* View+Frame.swift */; };
+		1E709ACD2B2B137600D6EC5E /* SystemDateTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709ACC2B2B137600D6EC5E /* SystemDateTime.swift */; };
+		1E709AD02B2B145400D6EC5E /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 1E709ACF2B2B145400D6EC5E /* SwiftDate */; };
+		1E709AD32B2B149F00D6EC5E /* SystemDateTimeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AD22B2B149F00D6EC5E /* SystemDateTimeType.swift */; };
+		1E709AD52B2B14D800D6EC5E /* SystemClockType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AD42B2B14D800D6EC5E /* SystemClockType.swift */; };
+		1E709AD72B2B152100D6EC5E /* SystemClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AD62B2B152100D6EC5E /* SystemClock.swift */; };
+		1E709AD92B2B173500D6EC5E /* Date+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AD82B2B173500D6EC5E /* Date+Helpers.swift */; };
+		1E709ADC2B2B1D4300D6EC5E /* BillViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709ADB2B2B1D4300D6EC5E /* BillViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,7 +72,6 @@
 		1E3332142B2A334800666400 /* SharedFlixUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFlixUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		1E709A922B2A36FE00D6EC5E /* SharedFlix.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = SharedFlix.entitlements; sourceTree = "<group>"; };
 		1E709A952B2A3A0F00D6EC5E /* PersonMO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonMO.swift; sourceTree = "<group>"; };
-		1E709A972B2A3AA900D6EC5E /* SharedFlixDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFlixDatabase.swift; sourceTree = "<group>"; };
 		1E709A992B2A3DDA00D6EC5E /* ParticipantMO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantMO.swift; sourceTree = "<group>"; };
 		1E709A9B2B2A3E0300D6EC5E /* BillMO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillMO.swift; sourceTree = "<group>"; };
 		1E709A9D2B2A3E2400D6EC5E /* LogMO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogMO.swift; sourceTree = "<group>"; };
@@ -83,6 +90,14 @@
 		1E709ABF2B2B0E2600D6EC5E /* Geomanist-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-Book.otf"; sourceTree = "<group>"; };
 		1E709AC02B2B0E2600D6EC5E /* Geomanist-BookItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-BookItalic.otf"; sourceTree = "<group>"; };
 		1E709AC62B2B0E9600D6EC5E /* Text+Geomanist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Geomanist.swift"; sourceTree = "<group>"; };
+		1E709AC82B2B10A800D6EC5E /* View+Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Padding.swift"; sourceTree = "<group>"; };
+		1E709ACA2B2B11B500D6EC5E /* View+Frame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Frame.swift"; sourceTree = "<group>"; };
+		1E709ACC2B2B137600D6EC5E /* SystemDateTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemDateTime.swift; sourceTree = "<group>"; };
+		1E709AD22B2B149F00D6EC5E /* SystemDateTimeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemDateTimeType.swift; sourceTree = "<group>"; };
+		1E709AD42B2B14D800D6EC5E /* SystemClockType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemClockType.swift; sourceTree = "<group>"; };
+		1E709AD62B2B152100D6EC5E /* SystemClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemClock.swift; sourceTree = "<group>"; };
+		1E709AD82B2B173500D6EC5E /* Date+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helpers.swift"; sourceTree = "<group>"; };
+		1E709ADB2B2B1D4300D6EC5E /* BillViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E709AD02B2B145400D6EC5E /* SwiftDate in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,11 +223,7 @@
 		1E709A942B2A39EA00D6EC5E /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				1E709A972B2A3AA900D6EC5E /* SharedFlixDatabase.swift */,
-				1E709A9B2B2A3E0300D6EC5E /* BillMO.swift */,
-				1E709A992B2A3DDA00D6EC5E /* ParticipantMO.swift */,
-				1E709A952B2A3A0F00D6EC5E /* PersonMO.swift */,
-				1E709A9D2B2A3E2400D6EC5E /* LogMO.swift */,
+				1E709ADD2B2B213A00D6EC5E /* Entities */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -229,6 +241,7 @@
 			children = (
 				1E709AB02B2B0A1E00D6EC5E /* Theme */,
 				1E709AB12B2B0A3200D6EC5E /* View */,
+				1E709ADA2B2B1D1B00D6EC5E /* ViewModel */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -265,8 +278,10 @@
 		1E709AB92B2B0D2900D6EC5E /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				1E709AD12B2B148800D6EC5E /* SystemDateTime */,
 				1E709AC52B2B0E7500D6EC5E /* SwiftUI */,
 				1E709ABA2B2B0D3300D6EC5E /* FontLoader.swift */,
+				1E709AD82B2B173500D6EC5E /* Date+Helpers.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -286,8 +301,40 @@
 			isa = PBXGroup;
 			children = (
 				1E709AC62B2B0E9600D6EC5E /* Text+Geomanist.swift */,
+				1E709AC82B2B10A800D6EC5E /* View+Padding.swift */,
+				1E709ACA2B2B11B500D6EC5E /* View+Frame.swift */,
 			);
 			path = SwiftUI;
+			sourceTree = "<group>";
+		};
+		1E709AD12B2B148800D6EC5E /* SystemDateTime */ = {
+			isa = PBXGroup;
+			children = (
+				1E709AD22B2B149F00D6EC5E /* SystemDateTimeType.swift */,
+				1E709AD42B2B14D800D6EC5E /* SystemClockType.swift */,
+				1E709ACC2B2B137600D6EC5E /* SystemDateTime.swift */,
+				1E709AD62B2B152100D6EC5E /* SystemClock.swift */,
+			);
+			path = SystemDateTime;
+			sourceTree = "<group>";
+		};
+		1E709ADA2B2B1D1B00D6EC5E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				1E709ADB2B2B1D4300D6EC5E /* BillViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		1E709ADD2B2B213A00D6EC5E /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				1E709A9B2B2A3E0300D6EC5E /* BillMO.swift */,
+				1E709A992B2A3DDA00D6EC5E /* ParticipantMO.swift */,
+				1E709A952B2A3A0F00D6EC5E /* PersonMO.swift */,
+				1E709A9D2B2A3E2400D6EC5E /* LogMO.swift */,
+			);
+			path = Entities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -306,6 +353,9 @@
 			dependencies = (
 			);
 			name = SharedFlix;
+			packageProductDependencies = (
+				1E709ACF2B2B145400D6EC5E /* SwiftDate */,
+			);
 			productName = SharedFlix;
 			productReference = 1E3331EE2B2A334400666400 /* SharedFlix.app */;
 			productType = "com.apple.product-type.application";
@@ -378,6 +428,9 @@
 				Base,
 			);
 			mainGroup = 1E3331E52B2A334400666400;
+			packageReferences = (
+				1E709ACE2B2B145400D6EC5E /* XCRemoteSwiftPackageReference "SwiftDate" */,
+			);
 			productRefGroup = 1E3331EF2B2A334400666400 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -423,24 +476,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E709ACB2B2B11B500D6EC5E /* View+Frame.swift in Sources */,
 				1E709AAD2B2B082400D6EC5E /* PersonModel.swift in Sources */,
 				1E709AAB2B2B07F400D6EC5E /* ParticipantModel.swift in Sources */,
+				1E709ADC2B2B1D4300D6EC5E /* BillViewModel.swift in Sources */,
 				1E709AC72B2B0E9600D6EC5E /* Text+Geomanist.swift in Sources */,
 				1E709AA12B2A409300D6EC5E /* CycleType.swift in Sources */,
-				1E709A982B2A3AA900D6EC5E /* SharedFlixDatabase.swift in Sources */,
 				1E709ABB2B2B0D3300D6EC5E /* FontLoader.swift in Sources */,
 				1E709AB82B2B0CED00D6EC5E /* Theme+GeomanistFont.swift in Sources */,
 				1E709AA92B2A866600D6EC5E /* BillModel.swift in Sources */,
+				1E709AD32B2B149F00D6EC5E /* SystemDateTimeType.swift in Sources */,
 				1E3331F72B2A334500666400 /* SharedFlix.xcdatamodeld in Sources */,
 				1E709A9A2B2A3DDA00D6EC5E /* ParticipantMO.swift in Sources */,
 				1E3331F22B2A334400666400 /* SharedFlixApp.swift in Sources */,
 				1E709A962B2A3A0F00D6EC5E /* PersonMO.swift in Sources */,
 				1E709A9C2B2A3E0300D6EC5E /* BillMO.swift in Sources */,
 				1E709AB62B2B0A6500D6EC5E /* Theme+Color.swift in Sources */,
+				1E709ACD2B2B137600D6EC5E /* SystemDateTime.swift in Sources */,
 				1E709AA62B2A84AF00D6EC5E /* HomePageView.swift in Sources */,
 				1E709A9E2B2A3E2400D6EC5E /* LogMO.swift in Sources */,
+				1E709AD52B2B14D800D6EC5E /* SystemClockType.swift in Sources */,
 				1E709AAF2B2B084F00D6EC5E /* LogModel.swift in Sources */,
+				1E709AD72B2B152100D6EC5E /* SystemClock.swift in Sources */,
+				1E709AC92B2B10A800D6EC5E /* View+Padding.swift in Sources */,
 				1E709AB32B2B0A4500D6EC5E /* Theme.swift in Sources */,
+				1E709AD92B2B173500D6EC5E /* Date+Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -791,6 +851,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1E709ACE2B2B145400D6EC5E /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/SwiftDate.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1E709ACF2B2B145400D6EC5E /* SwiftDate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1E709ACE2B2B145400D6EC5E /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDate;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		1E3331F52B2A334500666400 /* SharedFlix.xcdatamodeld */ = {

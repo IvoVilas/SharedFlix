@@ -24,7 +24,7 @@ class LogMO: NSManagedObject {
     moc: NSManagedObjectContext
   ) {
     guard
-      let entity = SharedFlixDatabase.EntityDescription.log(moc)
+      let entity = NSEntityDescription.entity(forEntityName: "Log", in: moc)
     else {
       return nil
     }

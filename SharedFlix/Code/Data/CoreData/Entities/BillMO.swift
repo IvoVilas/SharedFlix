@@ -14,6 +14,7 @@ class BillMO: NSManagedObject {
   @NSManaged var name: String
   @NSManaged var value: Double
   @NSManaged var cycleId: Int16
+  @NSManaged var createdAt: Date
 
   @NSManaged var participants: Set<ParticipantMO>
   @NSManaged var logs: Set<LogMO>
@@ -23,20 +24,22 @@ class BillMO: NSManagedObject {
     name: String,
     value: Double,
     cycle: CycleType,
+    createdAt: Date,
     moc: NSManagedObjectContext
   ) {
     guard
-      let entity = SharedFlixDatabase.EntityDescription.bill(moc)
+      let entity = NSEntityDescription.entity(forEntityName: "Bill", in: moc)
     else {
       return nil
     }
 
     self.init(entity: entity, insertInto: moc)
 
-    self.id      = id
-    self.name    = name
-    self.value   = value
-    self.cycleId = cycle.id
+    self.id        = id
+    self.name      = name
+    self.value     = value
+    self.cycleId   = cycle.id
+    self.createdAt = createdAt
 
     self.participants = Set<ParticipantMO>()
     self.logs         = Set<LogMO>()

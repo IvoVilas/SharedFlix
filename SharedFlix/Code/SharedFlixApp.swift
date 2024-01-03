@@ -6,13 +6,21 @@
 //
 
 import SwiftUI
+import CoreData
 
 @main
 struct SharedFlixApp: App {
 
+  let systemDateTime: SystemDateTimeType
+  let container = NSPersistentContainer(name: "SharedFlix")
+
+  init() {
+    self.systemDateTime = SystemDateTime()
+  }
+
   var body: some Scene {
     WindowGroup {
-
+      Text("Hello world")
     }
   }
 }

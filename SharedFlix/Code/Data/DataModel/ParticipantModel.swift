@@ -11,7 +11,20 @@ struct ParticipantModel {
 
   let id: Int64
   let isOwner: Bool
-  let paidUntil: Date?
+  let paidUntil: Date
   let person: PersonModel
+
+  func getOwnedValue(
+    paying value: Double,
+    cycle: CycleType,
+    using systemDateTime: SystemDateTimeType = SystemDateTime()
+  ) -> Double {
+    switch cycle {
+    case .monthly:
+      let ownedMonths = systemDateTime.numberOfMonths(from: paidUntil, to: systemDateTime.now)
+
+      return Double(ownedMonths) * value
+    }
+  }
 
 }
