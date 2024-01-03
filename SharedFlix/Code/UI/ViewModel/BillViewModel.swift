@@ -17,11 +17,14 @@ final class BillViewModel: ObservableObject {
 
   @Published var isRemoving: Bool
 
+  var deleteAction: (() -> Void)?
+
   private var bill: BillModel
 
   init(
     systemDateTime: SystemDateTimeType,
-    bill: BillModel
+    bill: BillModel,
+    deleteAction: (() -> Void)? = nil
   ) {
     self.bill = bill
 
@@ -31,6 +34,16 @@ final class BillViewModel: ObservableObject {
     self.ownedValue   = BillViewModel.makeOwnedValueString(bill, systemDateTime: systemDateTime)
 
     self.isRemoving = false
+
+    self.deleteAction = deleteAction
+  }
+
+  func getBillId() -> String {
+    return bill.id
+  }
+
+  func getBillCreateAt() -> Date {
+    return bill.createdAt
   }
 
 }

@@ -15,6 +15,8 @@ final class HomePageViewModel: ObservableObject {
   private let systemDateTime: SystemDateTimeType
   private let moc: NSManagedObjectContext
 
+  private var currentCreateBillViewModel: CreateBillViewModel?
+
   @Published var bills: [BillViewModel]
 
   // FloatingButton
@@ -76,18 +78,60 @@ final class HomePageViewModel: ObservableObject {
     let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Bill")
 
     do {
-      let bills = try moc.fetch(fetchRequest) as! [BillMO]
+      let foundBills = try moc.fetch(fetchRequest) as! [BillMO]
 
-      self.bills = bills.compactMap { [weak self] bill in
-        guard let self else { return nil }
+      var bills         = [BillViewModel]()
+      let existingBills = self.bills.filter { foundBills.map { $0.id }.contains($0.getBillId()) }
+      let newBills      = foundBills.filter { [weak self] bill in
+          guard let self else { return false }
 
-        return BillViewModel(
-          systemDateTime: self.systemDateTime,
-          bill: BillModel.from(bill)
-        )
-      }
+          return !self.bills.map {$0.getBillId() }.contains(bill.id)
+        }
+
+      bills.append(contentsOf: existingBills)
+
+      bills.append(
+        contentsOf: newBills.compactMap { [weak self] bill in
+          guard let self else { return nil }
+
+          let billModel = BillModel.from(bill)
+
+          return BillViewModel(
+            systemDateTime: self.systemDateTime,
+            bill: billModel,
+            deleteAction: { [weak self] in self?.onDeleteBillAction(billModel.id) }
+          )
+        }
+      )
+
+      bills.sort { $0.getBillCreateAt() < $1.getBillCreateAt() }
+
+      self.bills = bills
     } catch {
       print("Error fetching bill data from database")
+    }
+  }
+
+  func deleteBill(
+    _ id: String
+  ) {
+    let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Bill")
+
+    fetchRequest.predicate = NSPredicate(format: "id == %@", id)
+
+    do {
+      let result = try moc.fetch(fetchRequest) as? [BillMO]
+
+      if let bill = result?.first {
+        moc.delete(bill)
+
+        try moc.save()
+      } else {
+        print("Couldn't find bill with id: \(id)")
+      }
+
+    } catch {
+      print("Error removing bill with id: \(id)")
     }
   }
 
@@ -103,15 +147,30 @@ extension HomePageViewModel {
     case .expanded:
       buttonState = .normal
 
-    case .removing, .creating:
+    case .removing:
       onStopRemoveBillAction()
 
-      buttonState = .normal
+    case .creating:
+      onCancelBillCreationAction()
     }
   }
 
   func onCreateBillAction() {
     buttonState = .creating
+  }
+
+  func onConfirmBillCreationAction() {
+    buttonState = .normal
+
+    _ = currentCreateBillViewModel?.createBill()
+
+    updateData()
+  }
+
+  func onCancelBillCreationAction() {
+    buttonState = .normal
+
+    currentCreateBillViewModel = nil
   }
 
   func onStartRemoveBillAction() {
@@ -121,9 +180,17 @@ extension HomePageViewModel {
   }
 
   func onStopRemoveBillAction() {
-    buttonState = .removing
+    buttonState = .normal
 
     bills.forEach { $0.isRemoving = false }
+  }
+
+  func onDeleteBillAction(_ id: String) {
+    self.deleteBill(id)
+
+    self.updateData()
+
+    if self.bills.isEmpty { onStopRemoveBillAction() }
   }
 
 }
@@ -131,7 +198,11 @@ extension HomePageViewModel {
 extension HomePageViewModel {
 
   func makeCreateBillViewModel() -> CreateBillViewModel {
-    return CreateBillViewModel(moc: moc)
+    let viewModel = CreateBillViewModel(moc: moc)
+
+    self.currentCreateBillViewModel = viewModel
+
+    return viewModel
   }
 
 }

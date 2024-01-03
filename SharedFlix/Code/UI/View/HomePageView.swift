@@ -35,6 +35,7 @@ struct HomePageView: View {
               }
             }
           }
+          .refreshable { viewModel.updateData() }
           .blur(radius: isExpanded || isCreating ? 3 : 0)
 
           if isCreating {
@@ -56,7 +57,7 @@ struct HomePageView: View {
 
                 Button {
                   withAnimation {
-                    viewModel.onCenterAction()
+                    viewModel.onConfirmBillCreationAction()
                   }
                 } label: {
                   Image(systemName: "checkmark")

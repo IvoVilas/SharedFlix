@@ -35,14 +35,18 @@ struct BillView: View {
       .clipShape(RoundedRectangle(cornerRadius: 20))
 
       if viewModel.isRemoving {
-        Image(systemName: "trash")
-          .resizable()
-          .padding(all: 4)
-          .frame(width: 30, height: 30)
-          .background(Theme.ColorPallete.White.v100)
-          .foregroundColor(Theme.ColorPallete.Red.v500)
-          .clipShape(Circle())
-          .offset(x: 15, y: -15)
+        Button {
+          viewModel.deleteAction?()
+        } label: {
+          Image(systemName: "trash")
+            .resizable()
+            .padding(all: 4)
+            .frame(width: 30, height: 30)
+            .background(Theme.ColorPallete.White.v100)
+            .foregroundColor(Theme.ColorPallete.Red.v500)
+            .clipShape(Circle())
+            .offset(x: 15, y: -15)
+        }
       }
     }
   }
@@ -54,7 +58,7 @@ struct BillView: View {
     viewModel: BillViewModel(
       systemDateTime: SystemDateTime(),
       bill: BillModel(
-        id: 1,
+        id: "1",
         name: "Netlfix",
         value: 14,
         cycle: .monthly,

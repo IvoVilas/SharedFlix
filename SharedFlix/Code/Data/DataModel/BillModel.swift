@@ -9,7 +9,7 @@ import Foundation
 
 struct BillModel {
 
-  let id: Int64
+  let id: String
   let name: String
   let value: Double
   let cycle: CycleType

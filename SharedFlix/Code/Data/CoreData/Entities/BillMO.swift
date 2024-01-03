@@ -10,7 +10,7 @@ import CoreData
 
 class BillMO: NSManagedObject {
 
-  @NSManaged var id: Int64
+  @NSManaged var id: String
   @NSManaged var name: String
   @NSManaged var value: Double
   @NSManaged var cycleId: Int16
@@ -20,6 +20,7 @@ class BillMO: NSManagedObject {
   @NSManaged var logs: Set<LogMO>
 
   convenience init?(
+    id: String = UUID().uuidString,
     name: String,
     value: Double,
     cycle: CycleType,
@@ -36,7 +37,7 @@ class BillMO: NSManagedObject {
 
     self.init(entity: entity, insertInto: moc)
 
-    self.id        = generateUniqueID()
+    self.id        = id
     self.name      = name
     self.value     = value
     self.cycleId   = cycle.id
@@ -44,33 +45,6 @@ class BillMO: NSManagedObject {
 
     self.participants = Set(participants)
     self.logs         = Set(logs)
-  }
-
-  convenience init?(
-    createdAt: Date,
-    moc: NSManagedObjectContext
-  ) {
-    guard
-      let entity = NSEntityDescription.entity(forEntityName: "Bill", in: moc)
-    else {
-      return nil
-    }
-
-    self.init(entity: entity, insertInto: moc)
-
-    self.id        = generateUniqueID()
-    self.name      = ""
-    self.value     = -1
-    self.cycleId   = -1
-    self.createdAt = createdAt
-
-    self.participants = []
-    self.logs         = []
-  }
-
-  private func generateUniqueID() -> Int64 {
-    let timestamp = Int64(Date().timeIntervalSince1970 * 1000)
-    return timestamp
   }
 
 }
