@@ -44,6 +44,7 @@
 		1E709AE12B2B254800D6EC5E /* HomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AE02B2B254800D6EC5E /* HomePageViewModel.swift */; };
 		1E709AE52B2B2C4500D6EC5E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AE42B2B2C4500D6EC5E /* Persistence.swift */; };
 		1E709AE72B2B3A1000D6EC5E /* Theme+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AE62B2B3A1000D6EC5E /* Theme+Preview.swift */; };
+		1E709AE92B2B6A1300D6EC5E /* FloatingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AE82B2B6A1300D6EC5E /* FloatingButtonView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		1E709AE02B2B254800D6EC5E /* HomePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewModel.swift; sourceTree = "<group>"; };
 		1E709AE42B2B2C4500D6EC5E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		1E709AE62B2B3A1000D6EC5E /* Theme+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Preview.swift"; sourceTree = "<group>"; };
+		1E709AE82B2B6A1300D6EC5E /* FloatingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButtonView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				1E709AA52B2A84AF00D6EC5E /* HomePageView.swift */,
+				1E709AE82B2B6A1300D6EC5E /* FloatingButtonView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -495,6 +498,7 @@
 				1E709ABB2B2B0D3300D6EC5E /* FontLoader.swift in Sources */,
 				1E709AB82B2B0CED00D6EC5E /* Theme+GeomanistFont.swift in Sources */,
 				1E709AA92B2A866600D6EC5E /* BillModel.swift in Sources */,
+				1E709AE92B2B6A1300D6EC5E /* FloatingButtonView.swift in Sources */,
 				1E709AD32B2B149F00D6EC5E /* SystemDateTimeType.swift in Sources */,
 				1E3331F72B2A334500666400 /* SharedFlix.xcdatamodeld in Sources */,
 				1E709A9A2B2A3DDA00D6EC5E /* ParticipantMO.swift in Sources */,

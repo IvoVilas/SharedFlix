@@ -11,18 +11,27 @@ struct HomePageView: View {
 
   @ObservedObject var viewModel: HomePageViewModel
 
+  @State private var isExpanded = false
+
   var body: some View {
     VStack(spacing: 0) {
       Text("SharedFlix")
         .applyMediumTextStyle(.xl6, Theme.ColorPallete.Red.v800)
 
-      ScrollView {
-        VStack {
-          ForEach(viewModel.bills, id: \.name) { bill in
-            BillView(viewModel: bill)
-              .padding(horizontal: 24)
+      ZStack {
+        ScrollView {
+          VStack(spacing: 24) {
+            Spacer().frame(height: 16)
+
+            ForEach(viewModel.bills, id: \.name) { bill in
+              BillView(viewModel: bill)
+                .padding(horizontal: 24)
+            }
           }
         }
+        .blur(radius: isExpanded ? 3 : 0)
+
+        FloatingButtonView(isExpanded: $isExpanded)
       }
     }
   }

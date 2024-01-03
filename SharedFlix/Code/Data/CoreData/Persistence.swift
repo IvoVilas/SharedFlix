@@ -15,45 +15,69 @@ struct PersistenceController {
     let result      = PersistenceController(inMemory: true)
     let viewContext = result.container.viewContext
 
-    let bill = BillMO(
+    makeData(
       id: 1,
-      name: "Netflix",
+      billName: "Netflix",
+      billValue: 14,
+      personName: "Ivo",
+      moc: viewContext
+    )
+
+    makeData(
+      id: 2,
+      billName: "Prenda",
+      billValue: 70,
+      personName: "Diana",
+      moc: viewContext
+    )
+
+    return result
+  }()
+
+  static func makeData(
+    id: Int64,
+    billName: String,
+    billValue: Double,
+    personName: String,
+    moc: NSManagedObjectContext
+  ) {
+    let bill = BillMO(
+      id: id,
+      name: billName,
       value: 14,
       cycle: .monthly,
       createdAt: Date(),
-      moc: viewContext
+      moc: moc
     )!
 
     let person = PersonMO(
-      id: 1,
-      name: "Ivo",
-      moc: viewContext
+      id: id,
+      name: personName,
+      moc: moc
     )!
 
     let participants = [
       ParticipantMO(
-        id: 1,
+        id: id,
         isOwner: false,
         paidUntil: Date(),
         person: person,
         bill: bill,
-        moc: viewContext
+        moc: moc
       )!
     ]
 
     bill.participants = Set(participants)
 
     do {
-      try viewContext.save()
+      try moc.save()
     } catch {
       let nsError = error as NSError
 
       fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
     }
+  }
 
-    return result
-  }()
-  
   let container: NSPersistentContainer
 
   init(inMemory: Bool = false) {
