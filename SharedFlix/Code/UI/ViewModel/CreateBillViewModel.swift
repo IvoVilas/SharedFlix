@@ -10,14 +10,13 @@ import SwiftUI
 
 final class CreateBillViewModel: ObservableObject {
 
-  @Published var participants: [ParticipantModel]
   @Published var showPatientsScreen: Bool
 
   @ObservedObject var nameInputViewModel: InputFormViewModel
   @ObservedObject var valueInputViewModel: InputFormViewModel
+  @ObservedObject var participantsInputViewModel: InputListFormViewModel<ParticipantModel>
 
   init() {
-    self.participants       = []
     self.showPatientsScreen = false
 
     self.nameInputViewModel = InputFormViewModel(
@@ -30,6 +29,15 @@ final class CreateBillViewModel: ObservableObject {
       placeholder: "Insert expense value",
       keyboardType: .decimalPad
     )
+
+    self.participantsInputViewModel = InputListFormViewModel(
+      title: "Participants",
+      addTitle: "Add participant"
+    )
+
+    participantsInputViewModel.action = { [weak self] in
+      self?.showPatientsScreen.toggle()
+    }
   }
 
 }

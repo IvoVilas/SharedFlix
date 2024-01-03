@@ -8,6 +8,13 @@
 import Foundation
 import SwiftUI
 
+protocol InputListItem {
+
+  var id: Int64 { get }
+  var name: String { get }
+
+}
+
 final class InputFormViewModel: ObservableObject {
 
   let title: String
@@ -26,6 +33,27 @@ final class InputFormViewModel: ObservableObject {
     self.placeholder  = placeholder
     self.input        = initialValue
     self.keyboardType = keyboardType
+  }
+
+}
+
+final class InputListFormViewModel<Item: InputListItem>: ObservableObject {
+
+  let title: String
+  let actionTitle: String
+
+  @State var items: [Item]
+
+  var action: (() -> Void)?
+
+  init(
+    title: String,
+    addTitle: String,
+    items: [Item] = []
+  ) {
+    self.title       = title
+    self.actionTitle = addTitle
+    self.items       = items
   }
 
 }

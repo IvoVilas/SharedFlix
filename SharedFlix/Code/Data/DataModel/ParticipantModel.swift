@@ -44,3 +44,11 @@ struct ParticipantModel {
   }
 
 }
+
+extension ParticipantModel: InputListItem {
+
+  var name: String {
+    return person.name
+  }
+
+}

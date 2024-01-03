@@ -15,12 +15,9 @@ struct InputFormView: View {
   @ObservedObject var viewModel: InputFormViewModel
 
   var body: some View {
-    VStack(alignment: .leading, spacing: 0) {
+    VStack(alignment: .leading, spacing: 8) {
       Text(viewModel.title)
         .applyMediumTextStyle(.xl3, Theme.ColorPallete.Gray.v800)
-
-      Spacer()
-        .frame(height: 8)
 
       TextField(
         viewModel.placeholder,
@@ -42,12 +39,71 @@ struct InputFormView: View {
 
 }
 
+struct InputListFormView<Item: InputListItem>: View {
+
+  @ObservedObject var viewModel: InputListFormViewModel<Item>
+
+  var body: some View {
+    VStack(alignment: .leading, spacing: 8) {
+      Text(viewModel.title)
+        .applyMediumTextStyle(.xl3, Theme.ColorPallete.Gray.v800)
+
+      VStack(spacing: 0) {
+        ForEach(viewModel.items, id: \.id) { item in
+          Text(item.name)
+            .applyBookTextStyle(.xl2, Theme.ColorPallete.Gray.v700)
+            .growHorizontally(alignment: .leading)
+            .padding(all: 8)
+
+          LineView(
+            color: Theme.ColorPallete.Gray.v600,
+            lineWidth: 2
+          )
+          .padding(horizontal: 4)
+          .background(Theme.ColorPallete.Gray.v200)
+        }
+
+        HStack {
+          Text(viewModel.actionTitle)
+            .applyBookTextStyle(.xl, Theme.ColorPallete.Gray.v600)
+            .padding(all: 8)
+
+          Button(action: { viewModel.action?() }) {
+            HStack {
+              Spacer()
+
+              Image(systemName: "plus")
+                .resizable()
+                .padding(all: 2)
+                .frame(width: 20, height: 20)
+                .foregroundColor(Theme.ColorPallete.Gray.v600)
+                .padding(all: 8)
+            }
+          }
+        }
+      }
+      .background(Theme.ColorPallete.Gray.v200)
+      .clipShape(RoundedRectangle(cornerRadius: 8))
+    }
+  }
+
+}
+
 #Preview {
-  InputFormView(
-    viewModel: InputFormViewModel(
-      title: "Input",
-      placeholder: "Write your input"
+  VStack(spacing: 24) {
+    InputFormView(
+      viewModel: InputFormViewModel(
+        title: "Input",
+        placeholder: "Write your input"
+      )
     )
-  )
+
+    InputListFormView<ParticipantModel>(
+      viewModel: InputListFormViewModel(
+        title: "Participants",
+        addTitle: "Add participant"
+      )
+    )
+  }
   .padding(horizontal: 24)
 }

@@ -25,32 +25,70 @@ final class BillViewModel: ObservableObject {
   ) {
     self.bill = bill
 
-    let valueFirst = String(format: "%.2f€", bill.value)
-    let valueSecond: String
+    self.name         = bill.name
+    self.value        = BillViewModel.makeBillValueString(bill)
+    self.participants = BillViewModel.makeParticipantsString(bill)
+    self.ownedValue   = BillViewModel.makeOwnedValueString(bill, systemDateTime: systemDateTime)
 
-    let participants = bill.participants.count
-    let participantsWord: String
+    self.isRemoving = false
+  }
+
+}
+
+extension BillViewModel {
+
+  private static func makeBillValueString(
+    _ bill: BillModel
+  ) -> String {
+    let value   = bill.value
+    let decimal = value.truncatingRemainder(dividingBy: 1)
+    
+    let secondPart: String
 
     switch bill.cycle {
     case .monthly:
-      valueSecond = "monthly"
+      secondPart = "monthly"
 
     case .unkown:
-      valueSecond = ""
+      secondPart = ""
     }
 
-    if participants == 1 {
-      participantsWord = "participant"
+    if decimal == 0 {
+      return String(format: "%.0f€ \(secondPart)", value)
     } else {
+      return String(format: "%.2f€ \(secondPart)", value)
+    }
+  }
+
+  private static func makeParticipantsString(
+    _ bill: BillModel
+  ) -> String {
+    let participants = bill.participants.count
+    let participantsWord: String
+
+    switch participants {
+    case 1:
+      participantsWord = "participant"
+
+    default:
       participantsWord = "participants"
     }
 
-    self.name         = bill.name
-    self.value        = "\(valueFirst) \(valueSecond)"
-    self.participants = "\(bill.participants.count) \(participantsWord)"
-    self.ownedValue   = String(format: "%.2f€ owned", bill.getTotalOwnedValue(using: systemDateTime))
+    return "\(participants) \(participantsWord)"
+  }
 
-    self.isRemoving = false
+  private static func makeOwnedValueString(
+    _ bill: BillModel,
+    systemDateTime: SystemDateTimeType
+  ) -> String {
+    let value   = bill.getTotalOwnedValue(using: systemDateTime)
+    let decimal = value.truncatingRemainder(dividingBy: 1)
+
+    if decimal == 0 {
+      return String(format: "%.0f€ owned", value)
+    } else {
+      return String(format: "%.2f€ owned", value)
+    }
   }
 
 }

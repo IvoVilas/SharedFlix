@@ -29,49 +29,9 @@ struct CreateBillView: View {
           viewModel: viewModel.valueInputViewModel
         )
 
-        VStack(alignment: .leading, spacing: 0) {
-          Text("Participants")
-            .applyMediumTextStyle(.xl3, Theme.ColorPallete.Gray.v800)
-
-          VStack(spacing: 0) {
-            ForEach(viewModel.participants, id: \.id) { participant in
-              Text(participant.person.name)
-                .applyBookTextStyle(.xl2, Theme.ColorPallete.Gray.v700)
-                .growHorizontally(alignment: .leading)
-                .padding(all: 8)
-
-              LineView(
-                color: Theme.ColorPallete.Gray.v600,
-                lineWidth: 2
-              )
-              .padding(horizontal: 4)
-              .background(Theme.ColorPallete.Gray.v200)
-            }
-
-            HStack {
-              Text("Add participant")
-                .applyBookTextStyle(.xl, Theme.ColorPallete.Gray.v600)
-                .padding(all: 8)
-
-              Button(action: {
-                viewModel.showPatientsScreen.toggle()
-              }) {
-                HStack {
-                  Spacer()
-
-                  Image(systemName: "plus")
-                    .resizable()
-                    .padding(all: 2)
-                    .frame(width: 20, height: 20)
-                    .foregroundColor(Theme.ColorPallete.Gray.v600)
-                    .padding(all: 8)
-                }
-              }
-            }
-          }
-          .background(Theme.ColorPallete.Gray.v200)
-          .clipShape(RoundedRectangle(cornerRadius: 8))
-        }
+        InputListFormView(
+          viewModel: viewModel.participantsInputViewModel
+        )
       }
       .padding(all: 24)
       .toolbar(.hidden, for: .automatic)

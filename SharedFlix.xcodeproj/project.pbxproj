@@ -269,8 +269,8 @@
 			isa = PBXGroup;
 			children = (
 				1E709AB02B2B0A1E00D6EC5E /* Theme */,
-				1E709AB12B2B0A3200D6EC5E /* View */,
 				1E709ADA2B2B1D1B00D6EC5E /* ViewModel */,
+				1E709AB12B2B0A3200D6EC5E /* View */,
 			);
 			path = UI;
 			sourceTree = "<group>";
