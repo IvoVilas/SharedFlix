@@ -20,6 +20,19 @@
 		1E709A9E2B2A3E2400D6EC5E /* LogMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709A9D2B2A3E2400D6EC5E /* LogMO.swift */; };
 		1E709AA12B2A409300D6EC5E /* CycleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AA02B2A409300D6EC5E /* CycleType.swift */; };
 		1E709AA62B2A84AF00D6EC5E /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AA52B2A84AF00D6EC5E /* HomePageView.swift */; };
+		1E709AA92B2A866600D6EC5E /* BillModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AA82B2A866600D6EC5E /* BillModel.swift */; };
+		1E709AAB2B2B07F400D6EC5E /* ParticipantModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AAA2B2B07F400D6EC5E /* ParticipantModel.swift */; };
+		1E709AAD2B2B082400D6EC5E /* PersonModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AAC2B2B082400D6EC5E /* PersonModel.swift */; };
+		1E709AAF2B2B084F00D6EC5E /* LogModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AAE2B2B084F00D6EC5E /* LogModel.swift */; };
+		1E709AB32B2B0A4500D6EC5E /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AB22B2B0A4500D6EC5E /* Theme.swift */; };
+		1E709AB62B2B0A6500D6EC5E /* Theme+Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AB52B2B0A6500D6EC5E /* Theme+Color.swift */; };
+		1E709AB82B2B0CED00D6EC5E /* Theme+GeomanistFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AB72B2B0CED00D6EC5E /* Theme+GeomanistFont.swift */; };
+		1E709ABB2B2B0D3300D6EC5E /* FontLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709ABA2B2B0D3300D6EC5E /* FontLoader.swift */; };
+		1E709AC12B2B0E2600D6EC5E /* Geomanist-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1E709ABD2B2B0E2600D6EC5E /* Geomanist-Medium.otf */; };
+		1E709AC22B2B0E2600D6EC5E /* Geomanist-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1E709ABE2B2B0E2600D6EC5E /* Geomanist-MediumItalic.otf */; };
+		1E709AC32B2B0E2600D6EC5E /* Geomanist-Book.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1E709ABF2B2B0E2600D6EC5E /* Geomanist-Book.otf */; };
+		1E709AC42B2B0E2600D6EC5E /* Geomanist-BookItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 1E709AC02B2B0E2600D6EC5E /* Geomanist-BookItalic.otf */; };
+		1E709AC72B2B0E9600D6EC5E /* Text+Geomanist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AC62B2B0E9600D6EC5E /* Text+Geomanist.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +70,19 @@
 		1E709A9D2B2A3E2400D6EC5E /* LogMO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogMO.swift; sourceTree = "<group>"; };
 		1E709AA02B2A409300D6EC5E /* CycleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleType.swift; sourceTree = "<group>"; };
 		1E709AA52B2A84AF00D6EC5E /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+		1E709AA82B2A866600D6EC5E /* BillModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillModel.swift; sourceTree = "<group>"; };
+		1E709AAA2B2B07F400D6EC5E /* ParticipantModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantModel.swift; sourceTree = "<group>"; };
+		1E709AAC2B2B082400D6EC5E /* PersonModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonModel.swift; sourceTree = "<group>"; };
+		1E709AAE2B2B084F00D6EC5E /* LogModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogModel.swift; sourceTree = "<group>"; };
+		1E709AB22B2B0A4500D6EC5E /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		1E709AB52B2B0A6500D6EC5E /* Theme+Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Color.swift"; sourceTree = "<group>"; };
+		1E709AB72B2B0CED00D6EC5E /* Theme+GeomanistFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+GeomanistFont.swift"; sourceTree = "<group>"; };
+		1E709ABA2B2B0D3300D6EC5E /* FontLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLoader.swift; sourceTree = "<group>"; };
+		1E709ABD2B2B0E2600D6EC5E /* Geomanist-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-Medium.otf"; sourceTree = "<group>"; };
+		1E709ABE2B2B0E2600D6EC5E /* Geomanist-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-MediumItalic.otf"; sourceTree = "<group>"; };
+		1E709ABF2B2B0E2600D6EC5E /* Geomanist-Book.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-Book.otf"; sourceTree = "<group>"; };
+		1E709AC02B2B0E2600D6EC5E /* Geomanist-BookItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Geomanist-BookItalic.otf"; sourceTree = "<group>"; };
+		1E709AC62B2B0E9600D6EC5E /* Text+Geomanist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Text+Geomanist.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +160,7 @@
 		1E709A8D2B2A354100D6EC5E /* Resourses */ = {
 			isa = PBXGroup;
 			children = (
+				1E709ABC2B2B0E0500D6EC5E /* Fonts */,
 				1E709A8F2B2A359A00D6EC5E /* Assets */,
 				1E709A902B2A35A500D6EC5E /* CoreData */,
 			);
@@ -159,6 +186,7 @@
 		1E709A912B2A35BA00D6EC5E /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				1E709AB92B2B0D2900D6EC5E /* Helpers */,
 				1E709A932B2A39E100D6EC5E /* Data */,
 				1E709AA22B2A848C00D6EC5E /* UI */,
 				1E3331F12B2A334400666400 /* SharedFlixApp.swift */,
@@ -170,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				1E709A9F2B2A408900D6EC5E /* Enum */,
+				1E709AA72B2A865500D6EC5E /* DataModel */,
 				1E709A942B2A39EA00D6EC5E /* CoreData */,
 			);
 			path = Data;
@@ -198,9 +227,67 @@
 		1E709AA22B2A848C00D6EC5E /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				1E709AA52B2A84AF00D6EC5E /* HomePageView.swift */,
+				1E709AB02B2B0A1E00D6EC5E /* Theme */,
+				1E709AB12B2B0A3200D6EC5E /* View */,
 			);
 			path = UI;
+			sourceTree = "<group>";
+		};
+		1E709AA72B2A865500D6EC5E /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				1E709AA82B2A866600D6EC5E /* BillModel.swift */,
+				1E709AAA2B2B07F400D6EC5E /* ParticipantModel.swift */,
+				1E709AAC2B2B082400D6EC5E /* PersonModel.swift */,
+				1E709AAE2B2B084F00D6EC5E /* LogModel.swift */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		1E709AB02B2B0A1E00D6EC5E /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				1E709AB22B2B0A4500D6EC5E /* Theme.swift */,
+				1E709AB52B2B0A6500D6EC5E /* Theme+Color.swift */,
+				1E709AB72B2B0CED00D6EC5E /* Theme+GeomanistFont.swift */,
+			);
+			path = Theme;
+			sourceTree = "<group>";
+		};
+		1E709AB12B2B0A3200D6EC5E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				1E709AA52B2A84AF00D6EC5E /* HomePageView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		1E709AB92B2B0D2900D6EC5E /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1E709AC52B2B0E7500D6EC5E /* SwiftUI */,
+				1E709ABA2B2B0D3300D6EC5E /* FontLoader.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		1E709ABC2B2B0E0500D6EC5E /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				1E709ABF2B2B0E2600D6EC5E /* Geomanist-Book.otf */,
+				1E709AC02B2B0E2600D6EC5E /* Geomanist-BookItalic.otf */,
+				1E709ABD2B2B0E2600D6EC5E /* Geomanist-Medium.otf */,
+				1E709ABE2B2B0E2600D6EC5E /* Geomanist-MediumItalic.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		1E709AC52B2B0E7500D6EC5E /* SwiftUI */ = {
+			isa = PBXGroup;
+			children = (
+				1E709AC62B2B0E9600D6EC5E /* Text+Geomanist.swift */,
+			);
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -307,7 +394,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E709AC32B2B0E2600D6EC5E /* Geomanist-Book.otf in Resources */,
+				1E709AC22B2B0E2600D6EC5E /* Geomanist-MediumItalic.otf in Resources */,
+				1E709AC12B2B0E2600D6EC5E /* Geomanist-Medium.otf in Resources */,
 				1E3331FB2B2A334700666400 /* Assets.xcassets in Resources */,
+				1E709AC42B2B0E2600D6EC5E /* Geomanist-BookItalic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,15 +423,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E709AAD2B2B082400D6EC5E /* PersonModel.swift in Sources */,
+				1E709AAB2B2B07F400D6EC5E /* ParticipantModel.swift in Sources */,
+				1E709AC72B2B0E9600D6EC5E /* Text+Geomanist.swift in Sources */,
 				1E709AA12B2A409300D6EC5E /* CycleType.swift in Sources */,
 				1E709A982B2A3AA900D6EC5E /* SharedFlixDatabase.swift in Sources */,
+				1E709ABB2B2B0D3300D6EC5E /* FontLoader.swift in Sources */,
+				1E709AB82B2B0CED00D6EC5E /* Theme+GeomanistFont.swift in Sources */,
+				1E709AA92B2A866600D6EC5E /* BillModel.swift in Sources */,
 				1E3331F72B2A334500666400 /* SharedFlix.xcdatamodeld in Sources */,
 				1E709A9A2B2A3DDA00D6EC5E /* ParticipantMO.swift in Sources */,
 				1E3331F22B2A334400666400 /* SharedFlixApp.swift in Sources */,
 				1E709A962B2A3A0F00D6EC5E /* PersonMO.swift in Sources */,
 				1E709A9C2B2A3E0300D6EC5E /* BillMO.swift in Sources */,
+				1E709AB62B2B0A6500D6EC5E /* Theme+Color.swift in Sources */,
 				1E709AA62B2A84AF00D6EC5E /* HomePageView.swift in Sources */,
 				1E709A9E2B2A3E2400D6EC5E /* LogMO.swift in Sources */,
+				1E709AAF2B2B084F00D6EC5E /* LogModel.swift in Sources */,
+				1E709AB32B2B0A4500D6EC5E /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
