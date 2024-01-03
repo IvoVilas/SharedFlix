@@ -45,6 +45,8 @@
 		1E709AE52B2B2C4500D6EC5E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AE42B2B2C4500D6EC5E /* Persistence.swift */; };
 		1E709AE72B2B3A1000D6EC5E /* Theme+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AE62B2B3A1000D6EC5E /* Theme+Preview.swift */; };
 		1E709AE92B2B6A1300D6EC5E /* FloatingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AE82B2B6A1300D6EC5E /* FloatingButtonView.swift */; };
+		1E709AEB2B2B761F00D6EC5E /* TextField+Geomanist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AEA2B2B761F00D6EC5E /* TextField+Geomanist.swift */; };
+		1E709AEF2B2BE02400D6EC5E /* View+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AEE2B2BE02400D6EC5E /* View+Combine.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,6 +108,8 @@
 		1E709AE42B2B2C4500D6EC5E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		1E709AE62B2B3A1000D6EC5E /* Theme+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Preview.swift"; sourceTree = "<group>"; };
 		1E709AE82B2B6A1300D6EC5E /* FloatingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButtonView.swift; sourceTree = "<group>"; };
+		1E709AEA2B2B761F00D6EC5E /* TextField+Geomanist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Geomanist.swift"; sourceTree = "<group>"; };
+		1E709AEE2B2BE02400D6EC5E /* View+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Combine.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,9 +315,11 @@
 		1E709AC52B2B0E7500D6EC5E /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				1E709AEA2B2B761F00D6EC5E /* TextField+Geomanist.swift */,
 				1E709AC62B2B0E9600D6EC5E /* Text+Geomanist.swift */,
 				1E709AC82B2B10A800D6EC5E /* View+Padding.swift */,
 				1E709ACA2B2B11B500D6EC5E /* View+Frame.swift */,
+				1E709AEE2B2BE02400D6EC5E /* View+Combine.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -493,6 +499,7 @@
 				1E709AAB2B2B07F400D6EC5E /* ParticipantModel.swift in Sources */,
 				1E709ADC2B2B1D4300D6EC5E /* BillViewModel.swift in Sources */,
 				1E709AE12B2B254800D6EC5E /* HomePageViewModel.swift in Sources */,
+				1E709AEB2B2B761F00D6EC5E /* TextField+Geomanist.swift in Sources */,
 				1E709AC72B2B0E9600D6EC5E /* Text+Geomanist.swift in Sources */,
 				1E709AA12B2A409300D6EC5E /* CycleType.swift in Sources */,
 				1E709ABB2B2B0D3300D6EC5E /* FontLoader.swift in Sources */,
@@ -512,6 +519,7 @@
 				1E709AE72B2B3A1000D6EC5E /* Theme+Preview.swift in Sources */,
 				1E709A9E2B2A3E2400D6EC5E /* LogMO.swift in Sources */,
 				1E709AD52B2B14D800D6EC5E /* SystemClockType.swift in Sources */,
+				1E709AEF2B2BE02400D6EC5E /* View+Combine.swift in Sources */,
 				1E709AAF2B2B084F00D6EC5E /* LogModel.swift in Sources */,
 				1E709AD72B2B152100D6EC5E /* SystemClock.swift in Sources */,
 				1E709AC92B2B10A800D6EC5E /* View+Padding.swift in Sources */,

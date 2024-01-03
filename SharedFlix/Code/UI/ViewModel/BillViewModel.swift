@@ -15,6 +15,8 @@ final class BillViewModel: ObservableObject {
   @Published var participants: String
   @Published var ownedValue: String
 
+  @Published var isRemoving: Bool
+
   private var bill: BillModel
 
   init(
@@ -43,10 +45,12 @@ final class BillViewModel: ObservableObject {
       participantsWord = "participants"
     }
 
-    self.name  = bill.name
-    self.value = "\(valueFirst) \(valueSecond)"
+    self.name         = bill.name
+    self.value        = "\(valueFirst) \(valueSecond)"
     self.participants = "\(bill.participants.count) \(participantsWord)"
-    self.ownedValue = String(format: "%.2f€ owned", bill.getTotalOwnedValue(using: systemDateTime))
+    self.ownedValue   = String(format: "%.2f€ owned", bill.getTotalOwnedValue(using: systemDateTime))
+
+    self.isRemoving = false
   }
 
 }

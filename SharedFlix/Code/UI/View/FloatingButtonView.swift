@@ -9,7 +9,10 @@ import SwiftUI
 
 struct FloatingButtonView: View {
 
-  @Binding var isExpanded: Bool
+  @ObservedObject var viewModel: HomePageViewModel
+
+  @State var isExpanded: Bool = false
+  @State var buttonIconName: String = "line.3.horizontal"
 
   var body: some View {
     VStack(spacing: 0) {
@@ -17,7 +20,7 @@ struct FloatingButtonView: View {
 
       ZStack {
         if isExpanded {
-          Button(action: {}) {
+          Button(action: viewModel.onStartRemoveBillAction) {
             Image(systemName: "trash")
               .resizable()
               .padding(all: 8)
@@ -31,7 +34,7 @@ struct FloatingButtonView: View {
             y: isExpanded ? 50 * sin(-180 * Double.pi / 180) : 0
           )
 
-          Button(action: {}) {
+          Button(action: viewModel.onCreateBillAction) {
             Image(systemName: "plus")
               .resizable()
               .padding(all: 8)
@@ -64,13 +67,15 @@ struct FloatingButtonView: View {
       .opacity(isExpanded ? 1 : 0)
       .animation(
         .spring(response: 0.5, dampingFraction: 0.7, blendDuration: 0),
-        value: isExpanded
+        value: viewModel.buttonState
       )
 
       Button {
-        withAnimation { isExpanded.toggle() }
+        withAnimation {
+          viewModel.onCenterAction()
+        }
       } label: {
-        Image(systemName: "line.3.horizontal")
+        Image(systemName: buttonIconName)
           .resizable()
           .padding(all: 16)
           .frame(width: 60, height: 60)
@@ -79,10 +84,17 @@ struct FloatingButtonView: View {
       }
       .clipShape(Circle())
     }
+    .assign($isExpanded, to: viewModel.isExpanded)
+    .assign($buttonIconName, to: viewModel.buttonIconName)
   }
 
 }
 
 #Preview {
-  return FloatingButtonView(isExpanded: .constant(true))
+  return FloatingButtonView(
+    viewModel: HomePageViewModel(
+      systemDateTime: SystemDateTime(),
+      moc: PersistenceController.preview.container.viewContext
+    )
+  )
 }
