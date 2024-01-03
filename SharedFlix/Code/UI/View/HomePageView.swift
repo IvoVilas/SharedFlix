@@ -11,6 +11,11 @@ struct HomePageView: View {
 
   @ObservedObject var viewModel: HomePageViewModel
 
+  @State private var shouldShake = false
+  @State private var isExpanded  = false
+  @State private var isRemoving  = false
+  @State private var isCreating  = false
+
   var body: some View {
     NavigationStack {
       VStack(spacing: 0) {
@@ -25,96 +30,62 @@ struct HomePageView: View {
               ForEach(viewModel.bills, id: \.name) { bill in
                 BillView(viewModel: bill)
                   .padding(horizontal: 24)
+                  .shake(shouldShake: shouldShake)
               }
             }
           }
-          .blur(radius: viewModel.buttonState == .expanded ? 3 : 0)
+          .blur(radius: isExpanded || isCreating ? 3 : 0)
 
-          FloatingButtonView(viewModel: viewModel)
-            .navigationDestination(isPresented: $viewModel.showBillScreen, destination: { CreateBillView() })
+          if isCreating {
+            ScrollView {
+              Spacer().frame(height: 72)
+
+              CreateBillView(viewModel: viewModel.makeCreateBillViewModel())
+                .padding(horizontal: 24)
+                .shadow(radius: 5)
+            }
+          }
+
+          HStack(spacing: 24) {
+            FloatingButtonView(viewModel: viewModel)
+
+            if isCreating {
+              VStack {
+                Spacer()
+
+                Button {
+                  withAnimation {
+                    viewModel.onCenterAction()
+                  }
+                } label: {
+                  Image(systemName: "checkmark")
+                    .resizable()
+                    .padding(all: 16)
+                    .frame(width: 60, height: 60)
+                    .background(Theme.ColorPallete.Green.v500)
+                    .foregroundColor(Theme.ColorPallete.White.v100)
+                }
+                .clipShape(Circle())
+              }
+            }
+          }
+          .animation(
+            .spring(response: 0.5, dampingFraction: 0.7, blendDuration: 0),
+            value: isCreating
+          )
         }
       }
       .background(Theme.ColorPallete.Gray.v900)
-    }
-  }
-
-}
-
-struct BillView: View {
-
-  @ObservedObject var viewModel: BillViewModel
-
-  var body: some View {
-    ZStack(alignment: Alignment(horizontal: .trailing, vertical: .top)) {
-      HStack {
-        VStack(alignment: .leading, spacing: 16) {
-          Text(viewModel.name)
-            .applyMediumTextStyle(.xl, Theme.ColorPallete.Gray.v800)
-
-          Text(viewModel.value)
-            .applyBookTextStyle(.l, Theme.ColorPallete.Gray.v700)
-
-          Text(viewModel.participants)
-            .applyBookTextStyle(.l, Theme.ColorPallete.Gray.v700)
-
-          Text(viewModel.ownedValue)
-            .applyBookTextStyle(.l, Theme.ColorPallete.Gray.v700)
+      .assign($isExpanded, to: viewModel.isExpanded)
+      .assign($isRemoving, to: viewModel.isRemoving)
+      .assign($isCreating, to: viewModel.isCreating)
+      .onChange(of: isRemoving) { oldValue, newValue in
+        if oldValue != newValue {
+          withAnimation(.linear(duration: 0.1).repeatCount(3, autoreverses: true)) {
+            self.shouldShake.toggle()
+          }
         }
-
-        Spacer()
       }
-      .padding(all: 24)
-      .background(Theme.ColorPallete.Blue.v600)
-      .clipShape(RoundedRectangle(cornerRadius: 20))
-
-      if viewModel.isRemoving {
-        Image(systemName: "trash")
-          .resizable()
-          .padding(all: 4)
-          .frame(width: 30, height: 30)
-          .background(Theme.ColorPallete.White.v100)
-          .foregroundColor(Theme.ColorPallete.Red.v500)
-          .clipShape(Circle())
-          .offset(x: 15, y: -15)
-      }
-    }
-  }
-
-}
-
-struct CreateBillView: View {
-
-  @FocusState private var nameFieldIsFocused: Bool
-
-  @State private var name: String = ""
-
-  var body: some View {
-    VStack {
-      TextField(
-        "Name:",
-        text: $name
-      )
-      .applyMediumTextStyle(.xl3, Theme.ColorPallete.Gray.v800)
-      .focused($nameFieldIsFocused)
-      .onSubmit {
-        // Do something
-      }
-      .textInputAutocapitalization(.sentences)
-      .autocorrectionDisabled(true)
-      .background(Theme.ColorPallete.Gray.v200)
-
-      TextField(
-        "Value:",
-        text: $name
-      )
-      .applyMediumTextStyle(.xl3, Theme.ColorPallete.Gray.v800)
-      .focused($nameFieldIsFocused)
-      .onSubmit {
-        // Do something
-      }
-      .textInputAutocapitalization(.sentences)
-      .autocorrectionDisabled(true)
-      .background(Theme.ColorPallete.Gray.v200)
     }
   }
 
@@ -129,8 +100,4 @@ struct CreateBillView: View {
       moc: PersistenceController.preview.container.viewContext
     )
   )
-}
-
-#Preview {
-  CreateBillView()
 }

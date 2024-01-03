@@ -67,7 +67,7 @@ struct FloatingButtonView: View {
       .opacity(isExpanded ? 1 : 0)
       .animation(
         .spring(response: 0.5, dampingFraction: 0.7, blendDuration: 0),
-        value: viewModel.buttonState
+        value: isExpanded
       )
 
       Button {

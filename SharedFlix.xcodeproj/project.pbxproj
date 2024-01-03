@@ -47,6 +47,14 @@
 		1E709AE92B2B6A1300D6EC5E /* FloatingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AE82B2B6A1300D6EC5E /* FloatingButtonView.swift */; };
 		1E709AEB2B2B761F00D6EC5E /* TextField+Geomanist.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AEA2B2B761F00D6EC5E /* TextField+Geomanist.swift */; };
 		1E709AEF2B2BE02400D6EC5E /* View+Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AEE2B2BE02400D6EC5E /* View+Combine.swift */; };
+		1E709AF12B2BE77500D6EC5E /* View+Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AF02B2BE77500D6EC5E /* View+Shake.swift */; };
+		1E709AF32B2C611400D6EC5E /* CreateBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AF22B2C611400D6EC5E /* CreateBillView.swift */; };
+		1E709AF52B2C67C100D6EC5E /* BillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AF42B2C67C100D6EC5E /* BillView.swift */; };
+		1E709AF72B2C6D4400D6EC5E /* Shape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AF62B2C6D4400D6EC5E /* Shape.swift */; };
+		1E709AF92B304F1600D6EC5E /* Views.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AF82B304F1600D6EC5E /* Views.swift */; };
+		1E709AFB2B304F7D00D6EC5E /* InputFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AFA2B304F7D00D6EC5E /* InputFormView.swift */; };
+		1E709AFD2B304FF900D6EC5E /* InputFormViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AFC2B304FF900D6EC5E /* InputFormViewModel.swift */; };
+		1E709AFF2B30501300D6EC5E /* CreateBillViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AFE2B30501300D6EC5E /* CreateBillViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +118,14 @@
 		1E709AE82B2B6A1300D6EC5E /* FloatingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButtonView.swift; sourceTree = "<group>"; };
 		1E709AEA2B2B761F00D6EC5E /* TextField+Geomanist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Geomanist.swift"; sourceTree = "<group>"; };
 		1E709AEE2B2BE02400D6EC5E /* View+Combine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Combine.swift"; sourceTree = "<group>"; };
+		1E709AF02B2BE77500D6EC5E /* View+Shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Shake.swift"; sourceTree = "<group>"; };
+		1E709AF22B2C611400D6EC5E /* CreateBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBillView.swift; sourceTree = "<group>"; };
+		1E709AF42B2C67C100D6EC5E /* BillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillView.swift; sourceTree = "<group>"; };
+		1E709AF62B2C6D4400D6EC5E /* Shape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shape.swift; sourceTree = "<group>"; };
+		1E709AF82B304F1600D6EC5E /* Views.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Views.swift; sourceTree = "<group>"; };
+		1E709AFA2B304F7D00D6EC5E /* InputFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFormView.swift; sourceTree = "<group>"; };
+		1E709AFC2B304FF900D6EC5E /* InputFormViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputFormViewModel.swift; sourceTree = "<group>"; };
+		1E709AFE2B30501300D6EC5E /* CreateBillViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateBillViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,7 +301,10 @@
 			isa = PBXGroup;
 			children = (
 				1E709AA52B2A84AF00D6EC5E /* HomePageView.swift */,
+				1E709AF42B2C67C100D6EC5E /* BillView.swift */,
+				1E709AF22B2C611400D6EC5E /* CreateBillView.swift */,
 				1E709AE82B2B6A1300D6EC5E /* FloatingButtonView.swift */,
+				1E709AFA2B304F7D00D6EC5E /* InputFormView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -315,11 +334,14 @@
 		1E709AC52B2B0E7500D6EC5E /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				1E709AF82B304F1600D6EC5E /* Views.swift */,
 				1E709AEA2B2B761F00D6EC5E /* TextField+Geomanist.swift */,
 				1E709AC62B2B0E9600D6EC5E /* Text+Geomanist.swift */,
 				1E709AC82B2B10A800D6EC5E /* View+Padding.swift */,
 				1E709ACA2B2B11B500D6EC5E /* View+Frame.swift */,
 				1E709AEE2B2BE02400D6EC5E /* View+Combine.swift */,
+				1E709AF02B2BE77500D6EC5E /* View+Shake.swift */,
+				1E709AF62B2C6D4400D6EC5E /* Shape.swift */,
 			);
 			path = SwiftUI;
 			sourceTree = "<group>";
@@ -340,6 +362,8 @@
 			children = (
 				1E709AE02B2B254800D6EC5E /* HomePageViewModel.swift */,
 				1E709ADB2B2B1D4300D6EC5E /* BillViewModel.swift */,
+				1E709AFE2B30501300D6EC5E /* CreateBillViewModel.swift */,
+				1E709AFC2B304FF900D6EC5E /* InputFormViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -496,12 +520,16 @@
 			files = (
 				1E709ACB2B2B11B500D6EC5E /* View+Frame.swift in Sources */,
 				1E709AAD2B2B082400D6EC5E /* PersonModel.swift in Sources */,
+				1E709AF32B2C611400D6EC5E /* CreateBillView.swift in Sources */,
+				1E709AF52B2C67C100D6EC5E /* BillView.swift in Sources */,
 				1E709AAB2B2B07F400D6EC5E /* ParticipantModel.swift in Sources */,
 				1E709ADC2B2B1D4300D6EC5E /* BillViewModel.swift in Sources */,
 				1E709AE12B2B254800D6EC5E /* HomePageViewModel.swift in Sources */,
 				1E709AEB2B2B761F00D6EC5E /* TextField+Geomanist.swift in Sources */,
+				1E709AF92B304F1600D6EC5E /* Views.swift in Sources */,
 				1E709AC72B2B0E9600D6EC5E /* Text+Geomanist.swift in Sources */,
 				1E709AA12B2A409300D6EC5E /* CycleType.swift in Sources */,
+				1E709AF72B2C6D4400D6EC5E /* Shape.swift in Sources */,
 				1E709ABB2B2B0D3300D6EC5E /* FontLoader.swift in Sources */,
 				1E709AB82B2B0CED00D6EC5E /* Theme+GeomanistFont.swift in Sources */,
 				1E709AA92B2A866600D6EC5E /* BillModel.swift in Sources */,
@@ -509,6 +537,7 @@
 				1E709AD32B2B149F00D6EC5E /* SystemDateTimeType.swift in Sources */,
 				1E3331F72B2A334500666400 /* SharedFlix.xcdatamodeld in Sources */,
 				1E709A9A2B2A3DDA00D6EC5E /* ParticipantMO.swift in Sources */,
+				1E709AFB2B304F7D00D6EC5E /* InputFormView.swift in Sources */,
 				1E3331F22B2A334400666400 /* SharedFlixApp.swift in Sources */,
 				1E709A962B2A3A0F00D6EC5E /* PersonMO.swift in Sources */,
 				1E709A9C2B2A3E0300D6EC5E /* BillMO.swift in Sources */,
@@ -522,7 +551,10 @@
 				1E709AEF2B2BE02400D6EC5E /* View+Combine.swift in Sources */,
 				1E709AAF2B2B084F00D6EC5E /* LogModel.swift in Sources */,
 				1E709AD72B2B152100D6EC5E /* SystemClock.swift in Sources */,
+				1E709AFF2B30501300D6EC5E /* CreateBillViewModel.swift in Sources */,
+				1E709AFD2B304FF900D6EC5E /* InputFormViewModel.swift in Sources */,
 				1E709AC92B2B10A800D6EC5E /* View+Padding.swift in Sources */,
+				1E709AF12B2BE77500D6EC5E /* View+Shake.swift in Sources */,
 				1E709AB32B2B0A4500D6EC5E /* Theme.swift in Sources */,
 				1E709AD92B2B173500D6EC5E /* Date+Helpers.swift in Sources */,
 			);
@@ -696,7 +728,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
@@ -733,7 +765,7 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
@@ -757,7 +789,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Moguizan.SharedFlixTests;
@@ -779,7 +811,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Moguizan.SharedFlixTests;
@@ -800,7 +832,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Moguizan.SharedFlixUITests;
@@ -821,7 +853,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 13.5;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = Moguizan.SharedFlixUITests;

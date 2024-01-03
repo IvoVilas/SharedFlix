@@ -22,9 +22,9 @@ final class HomePageViewModel: ObservableObject {
     case normal
     case expanded
     case removing
+    case creating
   }
 
-  @Published var showBillScreen: Bool
   @Published var buttonState: HomePageViewModel.State
 
   var buttonIconName: AnyPublisher<String, Never> {
@@ -33,8 +33,8 @@ final class HomePageViewModel: ObservableObject {
         switch $0 {
         case .normal, .expanded:
           return "line.3.horizontal"
-        case .removing:
-          return "arrow.uturn.left"
+        case .removing, .creating:
+          return "xmark"
         }
       }
       .eraseToAnyPublisher()
@@ -43,6 +43,18 @@ final class HomePageViewModel: ObservableObject {
   var isExpanded: AnyPublisher<Bool, Never> {
     return $buttonState
       .map { $0 == .expanded }
+      .eraseToAnyPublisher()
+  }
+
+  var isRemoving: AnyPublisher<Bool, Never> {
+    return $buttonState
+      .map { $0 == .removing }
+      .eraseToAnyPublisher()
+  }
+
+  var isCreating: AnyPublisher<Bool, Never> {
+    return $buttonState
+      .map { $0 == .creating }
       .eraseToAnyPublisher()
   }
 
@@ -55,8 +67,7 @@ final class HomePageViewModel: ObservableObject {
 
     self.bills = []
 
-    self.buttonState    = .normal
-    self.showBillScreen = false
+    self.buttonState = .normal
 
     updateData()
   }
@@ -92,7 +103,7 @@ extension HomePageViewModel {
     case .expanded:
       buttonState = .normal
 
-    case .removing:
+    case .removing, .creating:
       onStopRemoveBillAction()
 
       buttonState = .normal
@@ -100,9 +111,7 @@ extension HomePageViewModel {
   }
 
   func onCreateBillAction() {
-    showBillScreen = true
-
-    buttonState = .normal
+    buttonState = .creating
   }
 
   func onStartRemoveBillAction() {
@@ -115,6 +124,14 @@ extension HomePageViewModel {
     buttonState = .removing
 
     bills.forEach { $0.isRemoving = false }
+  }
+
+}
+
+extension HomePageViewModel {
+
+  func makeCreateBillViewModel() -> CreateBillViewModel {
+    return CreateBillViewModel()
   }
 
 }

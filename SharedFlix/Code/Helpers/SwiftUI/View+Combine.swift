@@ -11,7 +11,7 @@ import Combine
 
 extension View {
 
-  func assign<Value>(
+  @inlinable public func assign<Value>(
     _ property: Binding<Value>,
     to publisher: AnyPublisher<Value, Never>
   ) -> some View {

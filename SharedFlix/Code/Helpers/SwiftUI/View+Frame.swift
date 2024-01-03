@@ -19,7 +19,7 @@ extension View {
   @inlinable public func growHorizontally(
     alignment: Alignment = .center
   ) -> some View {
-    return self.frame(width: nil, alignment: alignment)
+    return self.frame(maxWidth: .infinity, alignment: alignment)
   }
 
 }
