@@ -9,8 +9,22 @@ import SwiftUI
 
 struct HomePageView: View {
 
+  @ObservedObject var viewModel: HomePageViewModel
+
   var body: some View {
-    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+    VStack(spacing: 0) {
+      Text("SharedFlix")
+        .applyMediumTextStyle(.xl6, Theme.ColorPallete.Red.v800)
+
+      ScrollView {
+        VStack {
+          ForEach(viewModel.bills, id: \.name) { bill in
+            BillView(viewModel: bill)
+              .padding(horizontal: 24)
+          }
+        }
+      }
+    }
   }
 
 }
@@ -20,29 +34,26 @@ struct BillView: View {
   @ObservedObject var viewModel: BillViewModel
 
   var body: some View {
-    ScrollView {
-      HStack {
-        VStack(alignment: .leading, spacing: 16) {
-          Text(viewModel.name)
-            .applyMediumTextStyle(.xl, Theme.ColorPallete.Gray.v800)
+    HStack {
+      VStack(alignment: .leading, spacing: 16) {
+        Text(viewModel.name)
+          .applyMediumTextStyle(.xl, Theme.ColorPallete.Gray.v800)
 
-          Text(viewModel.value)
-            .applyBookTextStyle(.l, Theme.ColorPallete.Gray.v700)
+        Text(viewModel.value)
+          .applyBookTextStyle(.l, Theme.ColorPallete.Gray.v700)
 
-          Text(viewModel.participants)
-            .applyBookTextStyle(.l, Theme.ColorPallete.Gray.v700)
+        Text(viewModel.participants)
+          .applyBookTextStyle(.l, Theme.ColorPallete.Gray.v700)
 
-          Text(viewModel.ownedValue)
-            .applyBookTextStyle(.l, Theme.ColorPallete.Gray.v700)
-        }
-
-        Spacer()
+        Text(viewModel.ownedValue)
+          .applyBookTextStyle(.l, Theme.ColorPallete.Gray.v700)
       }
-      .padding(all: 24)
-      .background(Theme.ColorPallete.Blue.v600)
-      .clipShape(RoundedRectangle(cornerRadius: 20))
+
+      Spacer()
     }
-    .padding(horizontal: 36)
+    .padding(all: 24)
+    .background(Theme.ColorPallete.Blue.v600)
+    .clipShape(RoundedRectangle(cornerRadius: 20))
   }
 
 }
@@ -50,27 +61,10 @@ struct BillView: View {
 #Preview {
   let systemDateTime = SystemDateTime()
 
-  return BillView(
-    viewModel: BillViewModel(
+  return HomePageView(
+    viewModel: HomePageViewModel(
       systemDateTime: systemDateTime,
-      bill: BillModel(
-        id: 0,
-        name: "Netflix",
-        value: 14.0,
-        cycle: .monthly,
-        participants: [
-          ParticipantModel(
-            id: 0,
-            isOwner: true,
-            paidUntil: systemDateTime.makeDate(day: 31, month: 10, year: 2023),
-            person: PersonModel(
-              id: 0,
-              name: "Ivo"
-            )
-          )
-        ],
-        logs: []
-      )
+      moc: PersistenceController.preview.container.viewContext
     )
   )
 }

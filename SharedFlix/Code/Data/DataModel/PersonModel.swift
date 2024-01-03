@@ -12,4 +12,10 @@ struct PersonModel {
   let id: Int64
   let name: String
 
+  static func from(_ entity: PersonMO) -> PersonModel {
+    return PersonModel(
+      id: entity.id,
+      name: entity.name
+    )
+  }
 }

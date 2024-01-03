@@ -41,6 +41,9 @@
 		1E709AD72B2B152100D6EC5E /* SystemClock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AD62B2B152100D6EC5E /* SystemClock.swift */; };
 		1E709AD92B2B173500D6EC5E /* Date+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AD82B2B173500D6EC5E /* Date+Helpers.swift */; };
 		1E709ADC2B2B1D4300D6EC5E /* BillViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709ADB2B2B1D4300D6EC5E /* BillViewModel.swift */; };
+		1E709AE12B2B254800D6EC5E /* HomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AE02B2B254800D6EC5E /* HomePageViewModel.swift */; };
+		1E709AE52B2B2C4500D6EC5E /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AE42B2B2C4500D6EC5E /* Persistence.swift */; };
+		1E709AE72B2B3A1000D6EC5E /* Theme+Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AE62B2B3A1000D6EC5E /* Theme+Preview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +101,9 @@
 		1E709AD62B2B152100D6EC5E /* SystemClock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemClock.swift; sourceTree = "<group>"; };
 		1E709AD82B2B173500D6EC5E /* Date+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Helpers.swift"; sourceTree = "<group>"; };
 		1E709ADB2B2B1D4300D6EC5E /* BillViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillViewModel.swift; sourceTree = "<group>"; };
+		1E709AE02B2B254800D6EC5E /* HomePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewModel.swift; sourceTree = "<group>"; };
+		1E709AE42B2B2C4500D6EC5E /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		1E709AE62B2B3A1000D6EC5E /* Theme+Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Theme+Preview.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +230,7 @@
 			isa = PBXGroup;
 			children = (
 				1E709ADD2B2B213A00D6EC5E /* Entities */,
+				1E709AE42B2B2C4500D6EC5E /* Persistence.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -263,6 +270,7 @@
 				1E709AB22B2B0A4500D6EC5E /* Theme.swift */,
 				1E709AB52B2B0A6500D6EC5E /* Theme+Color.swift */,
 				1E709AB72B2B0CED00D6EC5E /* Theme+GeomanistFont.swift */,
+				1E709AE62B2B3A1000D6EC5E /* Theme+Preview.swift */,
 			);
 			path = Theme;
 			sourceTree = "<group>";
@@ -321,6 +329,7 @@
 		1E709ADA2B2B1D1B00D6EC5E /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				1E709AE02B2B254800D6EC5E /* HomePageViewModel.swift */,
 				1E709ADB2B2B1D4300D6EC5E /* BillViewModel.swift */,
 			);
 			path = ViewModel;
@@ -480,6 +489,7 @@
 				1E709AAD2B2B082400D6EC5E /* PersonModel.swift in Sources */,
 				1E709AAB2B2B07F400D6EC5E /* ParticipantModel.swift in Sources */,
 				1E709ADC2B2B1D4300D6EC5E /* BillViewModel.swift in Sources */,
+				1E709AE12B2B254800D6EC5E /* HomePageViewModel.swift in Sources */,
 				1E709AC72B2B0E9600D6EC5E /* Text+Geomanist.swift in Sources */,
 				1E709AA12B2A409300D6EC5E /* CycleType.swift in Sources */,
 				1E709ABB2B2B0D3300D6EC5E /* FontLoader.swift in Sources */,
@@ -491,9 +501,11 @@
 				1E3331F22B2A334400666400 /* SharedFlixApp.swift in Sources */,
 				1E709A962B2A3A0F00D6EC5E /* PersonMO.swift in Sources */,
 				1E709A9C2B2A3E0300D6EC5E /* BillMO.swift in Sources */,
+				1E709AE52B2B2C4500D6EC5E /* Persistence.swift in Sources */,
 				1E709AB62B2B0A6500D6EC5E /* Theme+Color.swift in Sources */,
 				1E709ACD2B2B137600D6EC5E /* SystemDateTime.swift in Sources */,
 				1E709AA62B2A84AF00D6EC5E /* HomePageView.swift in Sources */,
+				1E709AE72B2B3A1000D6EC5E /* Theme+Preview.swift in Sources */,
 				1E709A9E2B2A3E2400D6EC5E /* LogMO.swift in Sources */,
 				1E709AD52B2B14D800D6EC5E /* SystemClockType.swift in Sources */,
 				1E709AAF2B2B084F00D6EC5E /* LogModel.swift in Sources */,

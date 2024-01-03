@@ -25,6 +25,8 @@ class BillMO: NSManagedObject {
     value: Double,
     cycle: CycleType,
     createdAt: Date,
+    participants: [ParticipantMO] = [],
+    logs: [LogMO] = [],
     moc: NSManagedObjectContext
   ) {
     guard
@@ -41,8 +43,8 @@ class BillMO: NSManagedObject {
     self.cycleId   = cycle.id
     self.createdAt = createdAt
 
-    self.participants = Set<ParticipantMO>()
-    self.logs         = Set<LogMO>()
+    self.participants = Set(participants)
+    self.logs         = Set(logs)
   }
 
 }

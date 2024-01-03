@@ -13,4 +13,12 @@ struct LogModel {
   let date: Date
   let value: Double
   
+  static func from(_ entity: LogMO) -> LogModel {
+    return LogModel(
+      id: entity.id,
+      date: entity.date,
+      value: entity.value
+    )
+  }
+
 }

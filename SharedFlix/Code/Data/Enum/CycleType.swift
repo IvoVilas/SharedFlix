@@ -10,21 +10,25 @@ import Foundation
 enum CycleType {
 
   case monthly
+  case unkown
 
   var id: Int16 {
     switch self {
     case .monthly:
       return 1
+
+    case .unkown:
+      return -1
     }
   }
 
-  static func from(_ value: Int16) -> CycleType? {
+  static func from(_ value: Int16) -> CycleType {
     switch value {
     case 1:
       return .monthly
 
     default:
-      return nil
+      return .unkown
     }
   }
 

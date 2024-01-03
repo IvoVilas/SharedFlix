@@ -12,15 +12,21 @@ import CoreData
 struct SharedFlixApp: App {
 
   let systemDateTime: SystemDateTimeType
-  let container = NSPersistentContainer(name: "SharedFlix")
+  let persistenceController: PersistenceController
 
   init() {
-    self.systemDateTime = SystemDateTime()
+    self.systemDateTime        = SystemDateTime()
+    self.persistenceController = PersistenceController.shared
   }
 
   var body: some Scene {
     WindowGroup {
-      Text("Hello world")
+      HomePageView(
+        viewModel: HomePageViewModel(
+          systemDateTime: systemDateTime,
+          moc: persistenceController.container.viewContext
+        )
+      )
     }
   }
 }
