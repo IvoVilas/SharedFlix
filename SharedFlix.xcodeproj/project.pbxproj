@@ -8,14 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		1E3331F22B2A334400666400 /* SharedFlixApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3331F12B2A334400666400 /* SharedFlixApp.swift */; };
-		1E3331F42B2A334500666400 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3331F32B2A334500666400 /* Persistence.swift */; };
 		1E3331F72B2A334500666400 /* SharedFlix.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1E3331F52B2A334500666400 /* SharedFlix.xcdatamodeld */; };
-		1E3331F92B2A334500666400 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3331F82B2A334500666400 /* ContentView.swift */; };
 		1E3331FB2B2A334700666400 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E3331FA2B2A334700666400 /* Assets.xcassets */; };
-		1E3331FF2B2A334700666400 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1E3331FE2B2A334700666400 /* Preview Assets.xcassets */; };
 		1E3332092B2A334800666400 /* SharedFlixTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3332082B2A334800666400 /* SharedFlixTests.swift */; };
 		1E3332132B2A334800666400 /* SharedFlixUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3332122B2A334800666400 /* SharedFlixUITests.swift */; };
 		1E3332152B2A334800666400 /* SharedFlixUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E3332142B2A334800666400 /* SharedFlixUITestsLaunchTests.swift */; };
+		1E709A962B2A3A0F00D6EC5E /* PersonMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709A952B2A3A0F00D6EC5E /* PersonMO.swift */; };
+		1E709A982B2A3AA900D6EC5E /* SharedFlixDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709A972B2A3AA900D6EC5E /* SharedFlixDatabase.swift */; };
+		1E709A9A2B2A3DDA00D6EC5E /* ParticipantMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709A992B2A3DDA00D6EC5E /* ParticipantMO.swift */; };
+		1E709A9C2B2A3E0300D6EC5E /* BillMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709A9B2B2A3E0300D6EC5E /* BillMO.swift */; };
+		1E709A9E2B2A3E2400D6EC5E /* LogMO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709A9D2B2A3E2400D6EC5E /* LogMO.swift */; };
+		1E709AA12B2A409300D6EC5E /* CycleType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AA02B2A409300D6EC5E /* CycleType.swift */; };
+		1E709AA62B2A84AF00D6EC5E /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E709AA52B2A84AF00D6EC5E /* HomePageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,17 +42,21 @@
 /* Begin PBXFileReference section */
 		1E3331EE2B2A334400666400 /* SharedFlix.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharedFlix.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E3331F12B2A334400666400 /* SharedFlixApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFlixApp.swift; sourceTree = "<group>"; };
-		1E3331F32B2A334500666400 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		1E3331F62B2A334500666400 /* SharedFlix.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SharedFlix.xcdatamodel; sourceTree = "<group>"; };
-		1E3331F82B2A334500666400 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		1E3331FA2B2A334700666400 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		1E3331FC2B2A334700666400 /* SharedFlix.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = SharedFlix.entitlements; sourceTree = "<group>"; };
-		1E3331FE2B2A334700666400 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		1E3332042B2A334800666400 /* SharedFlixTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharedFlixTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E3332082B2A334800666400 /* SharedFlixTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFlixTests.swift; sourceTree = "<group>"; };
 		1E33320E2B2A334800666400 /* SharedFlixUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SharedFlixUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E3332122B2A334800666400 /* SharedFlixUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFlixUITests.swift; sourceTree = "<group>"; };
 		1E3332142B2A334800666400 /* SharedFlixUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFlixUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		1E709A922B2A36FE00D6EC5E /* SharedFlix.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = SharedFlix.entitlements; sourceTree = "<group>"; };
+		1E709A952B2A3A0F00D6EC5E /* PersonMO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonMO.swift; sourceTree = "<group>"; };
+		1E709A972B2A3AA900D6EC5E /* SharedFlixDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFlixDatabase.swift; sourceTree = "<group>"; };
+		1E709A992B2A3DDA00D6EC5E /* ParticipantMO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantMO.swift; sourceTree = "<group>"; };
+		1E709A9B2B2A3E0300D6EC5E /* BillMO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillMO.swift; sourceTree = "<group>"; };
+		1E709A9D2B2A3E2400D6EC5E /* LogMO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogMO.swift; sourceTree = "<group>"; };
+		1E709AA02B2A409300D6EC5E /* CycleType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CycleType.swift; sourceTree = "<group>"; };
+		1E709AA52B2A84AF00D6EC5E /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,23 +107,11 @@
 		1E3331F02B2A334400666400 /* SharedFlix */ = {
 			isa = PBXGroup;
 			children = (
-				1E3331F12B2A334400666400 /* SharedFlixApp.swift */,
-				1E3331F32B2A334500666400 /* Persistence.swift */,
-				1E3331F82B2A334500666400 /* ContentView.swift */,
-				1E3331FA2B2A334700666400 /* Assets.xcassets */,
-				1E3331FC2B2A334700666400 /* SharedFlix.entitlements */,
-				1E3331F52B2A334500666400 /* SharedFlix.xcdatamodeld */,
-				1E3331FD2B2A334700666400 /* Preview Content */,
+				1E709A922B2A36FE00D6EC5E /* SharedFlix.entitlements */,
+				1E709A8D2B2A354100D6EC5E /* Resourses */,
+				1E709A912B2A35BA00D6EC5E /* Code */,
 			);
 			path = SharedFlix;
-			sourceTree = "<group>";
-		};
-		1E3331FD2B2A334700666400 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				1E3331FE2B2A334700666400 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		1E3332072B2A334800666400 /* SharedFlixTests */ = {
@@ -133,6 +129,78 @@
 				1E3332142B2A334800666400 /* SharedFlixUITestsLaunchTests.swift */,
 			);
 			path = SharedFlixUITests;
+			sourceTree = "<group>";
+		};
+		1E709A8D2B2A354100D6EC5E /* Resourses */ = {
+			isa = PBXGroup;
+			children = (
+				1E709A8F2B2A359A00D6EC5E /* Assets */,
+				1E709A902B2A35A500D6EC5E /* CoreData */,
+			);
+			path = Resourses;
+			sourceTree = "<group>";
+		};
+		1E709A8F2B2A359A00D6EC5E /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				1E3331FA2B2A334700666400 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		1E709A902B2A35A500D6EC5E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				1E3331F52B2A334500666400 /* SharedFlix.xcdatamodeld */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		1E709A912B2A35BA00D6EC5E /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				1E709A932B2A39E100D6EC5E /* Data */,
+				1E709AA22B2A848C00D6EC5E /* UI */,
+				1E3331F12B2A334400666400 /* SharedFlixApp.swift */,
+			);
+			path = Code;
+			sourceTree = "<group>";
+		};
+		1E709A932B2A39E100D6EC5E /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				1E709A9F2B2A408900D6EC5E /* Enum */,
+				1E709A942B2A39EA00D6EC5E /* CoreData */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		1E709A942B2A39EA00D6EC5E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				1E709A972B2A3AA900D6EC5E /* SharedFlixDatabase.swift */,
+				1E709A9B2B2A3E0300D6EC5E /* BillMO.swift */,
+				1E709A992B2A3DDA00D6EC5E /* ParticipantMO.swift */,
+				1E709A952B2A3A0F00D6EC5E /* PersonMO.swift */,
+				1E709A9D2B2A3E2400D6EC5E /* LogMO.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		1E709A9F2B2A408900D6EC5E /* Enum */ = {
+			isa = PBXGroup;
+			children = (
+				1E709AA02B2A409300D6EC5E /* CycleType.swift */,
+			);
+			path = Enum;
+			sourceTree = "<group>";
+		};
+		1E709AA22B2A848C00D6EC5E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1E709AA52B2A84AF00D6EC5E /* HomePageView.swift */,
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,7 +307,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1E3331FF2B2A334700666400 /* Preview Assets.xcassets in Resources */,
 				1E3331FB2B2A334700666400 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,10 +332,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1E709AA12B2A409300D6EC5E /* CycleType.swift in Sources */,
+				1E709A982B2A3AA900D6EC5E /* SharedFlixDatabase.swift in Sources */,
 				1E3331F72B2A334500666400 /* SharedFlix.xcdatamodeld in Sources */,
+				1E709A9A2B2A3DDA00D6EC5E /* ParticipantMO.swift in Sources */,
 				1E3331F22B2A334400666400 /* SharedFlixApp.swift in Sources */,
-				1E3331F92B2A334500666400 /* ContentView.swift in Sources */,
-				1E3331F42B2A334500666400 /* Persistence.swift in Sources */,
+				1E709A962B2A3A0F00D6EC5E /* PersonMO.swift in Sources */,
+				1E709A9C2B2A3E0300D6EC5E /* BillMO.swift in Sources */,
+				1E709AA62B2A84AF00D6EC5E /* HomePageView.swift in Sources */,
+				1E709A9E2B2A3E2400D6EC5E /* LogMO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,7 +499,7 @@
 				CODE_SIGN_ENTITLEMENTS = SharedFlix/SharedFlix.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SharedFlix/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -448,7 +520,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Moguizan.SharedFlix;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -463,7 +536,7 @@
 				CODE_SIGN_ENTITLEMENTS = SharedFlix/SharedFlix.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"SharedFlix/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -484,7 +557,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = Moguizan.SharedFlix;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
