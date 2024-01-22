@@ -8,8 +8,15 @@
 import Foundation
 import SwiftUI
 import CoreData
+import Combine
 
 final class CreateBillViewModel: ObservableObject {
+
+  struct Errors {
+    var name: String?
+    var value: String?
+    var participants: String?
+  }
 
   struct TemporaryBill {
     var name: String?
@@ -35,17 +42,22 @@ final class CreateBillViewModel: ObservableObject {
 
   @Published var showPatientsScreen: Bool
 
+  @Published var errors: Errors
+
   @ObservedObject var nameInputViewModel: InputFormViewModel
   @ObservedObject var valueInputViewModel: InputFormViewModel
   @ObservedObject var participantsInputViewModel: InputListFormViewModel<TemporaryParticipant>
 
   let availablePeopleViewModel: AvailablePeopleViewModel
 
+  private var observers = Set<AnyCancellable>()
+
   init(
     moc: NSManagedObjectContext
   ) {
-    self.moc  = moc
-    self.bill = TemporaryBill()
+    self.moc    = moc
+    self.bill   = TemporaryBill()
+    self.errors = Errors()
 
     self.showPatientsScreen = false
 
@@ -78,11 +90,57 @@ final class CreateBillViewModel: ObservableObject {
 
       self.participantsInputViewModel.setItems(self.makeTemporaryParticipants(people))
     }
+
+    observers.insert(
+      nameInputViewModel.$input.sink { [weak self] _ in
+        self?.errors.name = nil
+      }
+    )
+
+    observers.insert(
+      valueInputViewModel.$input.sink { [weak self] _ in
+        self?.errors.value = nil
+      }
+    )
+
+    observers.insert(
+      participantsInputViewModel.$items.sink { [weak self] _ in
+        self?.errors.participants = nil
+      }
+    )
   }
 
   // TODO: isOwner and paidUnit
   func makeTemporaryParticipants(_ people: [PersonModel]) -> [TemporaryParticipant] {
     return people.map { TemporaryParticipant(person: $0) }
+  }
+
+  func onUserWantsToCreateBill() -> Bool {
+    if nameInputViewModel.input.isEmpty {
+      errors.name = "Name must not be empty"
+    }
+
+    if Double(valueInputViewModel.input) == nil {
+      errors.value = "Value is not valid"
+    }
+
+    if valueInputViewModel.input.isEmpty {
+      errors.value = "Value must not be empty"
+    }
+
+    if participantsInputViewModel.items.isEmpty {
+      errors.participants = "Bill must have participants"
+    }
+
+    if
+      errors.name != nil ||
+        errors.value != nil ||
+        errors.participants != nil
+    {
+      return false
+    }
+
+    return createBill()
   }
 
   func createBill() -> Bool {

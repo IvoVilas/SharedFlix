@@ -160,11 +160,13 @@ extension HomePageViewModel {
   }
 
   func onConfirmBillCreationAction() {
-    buttonState = .normal
+    guard let currentCreateBillViewModel else { return }
 
-    _ = currentCreateBillViewModel?.createBill()
+    if currentCreateBillViewModel.onUserWantsToCreateBill() {
+      buttonState = .normal
 
-    updateData()
+      updateData()
+    }
   }
 
   func onCancelBillCreationAction() {

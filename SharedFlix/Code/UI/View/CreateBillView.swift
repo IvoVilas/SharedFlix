@@ -21,17 +21,38 @@ struct CreateBillView: View {
           .applyMediumTextStyle(.xl4, Theme.ColorPallete.Blue.v500)
           .growHorizontally(alignment: .center)
 
-        InputFormView(
-          viewModel: viewModel.nameInputViewModel
-        )
+        Group {
+          InputFormView(
+            viewModel: viewModel.nameInputViewModel
+          )
 
-        InputFormView(
-          viewModel: viewModel.valueInputViewModel
-        )
+          if let error = viewModel.errors.name {
+            Text(error)
+              .applyBookTextStyle(.sm, Theme.ColorPallete.Red.v500)
+          }
+        }
 
-        InputListFormView(
-          viewModel: viewModel.participantsInputViewModel
-        )
+        Group {
+          InputFormView(
+            viewModel: viewModel.valueInputViewModel
+          )
+
+          if let error = viewModel.errors.value {
+            Text(error)
+              .applyBookTextStyle(.sm, Theme.ColorPallete.Red.v500)
+          }
+        }
+
+        Group {
+          InputListFormView(
+            viewModel: viewModel.participantsInputViewModel
+          )
+
+          if let error = viewModel.errors.participants {
+            Text(error)
+              .applyBookTextStyle(.sm, Theme.ColorPallete.Red.v500)
+          }
+        }
       }
       .padding(all: 24)
       .background(Theme.ColorPallete.White.v100)

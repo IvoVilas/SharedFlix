@@ -60,3 +60,84 @@ final class InputListFormViewModel<Item: InputListItem>: ObservableObject {
   }
 
 }
+
+final class InputListsFormViewModel<Item: InputListItem>: ObservableObject {
+
+  enum SectionType: Identifiable {
+    case normal(InputListsFormViewModel.Section)
+    case limited(InputListsFormViewModel.Section, Int)
+
+    var section: Section {
+      switch self {
+      case .normal(let section):
+        return section
+
+      case .limited(let section, _):
+        return section
+      }
+    }
+
+    var id: Int {
+      return section.id
+    }
+  }
+
+  struct Section: Identifiable {
+    let id: Int
+    let title: String
+    let actionTitle: String
+    let items: [Item]
+
+    var action: (() -> Void)?
+  }
+
+  let title: String
+  
+  @Published var sections: [SectionType]
+
+  init(
+    title: String,
+    sections: [SectionType]
+  ) {
+    self.title    = title
+    self.sections = sections
+  }
+
+  func setSections(_ sections: [SectionType]) {
+    self.sections = sections
+  }
+
+  func setItems(
+    _ items: [Item],
+    forSection sectionId: Int
+  ) {
+    guard let index = sections.firstIndex(where: { $0.section.id == sectionId }) else {
+      return
+    }
+
+    let section = sections[index].section
+
+    let newSection = Section(
+      id: section.id,
+      title: section.title,
+      actionTitle: section.actionTitle,
+      items: items,
+      action: section.action
+    )
+
+    switch sections[index] {
+    case .normal:
+      sections.insert(
+        .normal(newSection),
+        at: index
+      )
+
+    case .limited(_, let limit):
+      sections.insert(
+        .limited(newSection, limit),
+        at: index
+      )
+    }
+  }
+
+}
