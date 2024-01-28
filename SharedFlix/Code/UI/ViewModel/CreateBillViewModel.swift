@@ -28,6 +28,8 @@ final class CreateBillViewModel: ObservableObject {
 
   var availablePeopleViewModel: AvailablePeopleViewModel?
 
+  var onUserCreatedBill: ((Bool) -> Void)?
+
   private var observers = Set<AnyCancellable>()
 
   init(
@@ -119,7 +121,7 @@ final class CreateBillViewModel: ObservableObject {
     return people.map { TemporaryParticipant(person: $0) }
   }
 
-  func onUserWantsToCreateBill() -> Bool {
+  func onUserWantsToCreateBill() {
     if nameInputViewModel.input.isEmpty {
       errors.name = "Name must not be empty"
     }
@@ -141,10 +143,18 @@ final class CreateBillViewModel: ObservableObject {
         errors.value != nil ||
         errors.participants != nil
     {
-      return false
+      return
     }
 
-    return createBill()
+    if createBill() {
+      onUserCreatedBill?(true)
+
+      return
+    }
+  }
+
+  func onUserWantsToCancel() {
+    onUserCreatedBill?(false)
   }
 
   func createBill() -> Bool {

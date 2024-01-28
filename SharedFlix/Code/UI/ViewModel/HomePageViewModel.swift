@@ -18,24 +18,15 @@ final class HomePageViewModel: ObservableObject {
   private var currentCreateBillViewModel: CreateBillViewModel?
 
   @Published var bills: [BillViewModel]
-
-  // FloatingButton
-  enum State {
-    case normal
-    case expanded
-    case removing
-    case creating
-  }
-
-  @Published var buttonState: HomePageViewModel.State
+  @Published var state: HomePageViewModel.State
 
   var buttonIconName: AnyPublisher<String, Never> {
-    return $buttonState
+    return $state
       .map {
         switch $0 {
-        case .normal, .expanded:
+        case .normal, .expanded, .creating:
           return "line.3.horizontal"
-        case .removing, .creating:
+        case .removing:
           return "xmark"
         }
       }
@@ -43,19 +34,19 @@ final class HomePageViewModel: ObservableObject {
   }
 
   var isExpanded: AnyPublisher<Bool, Never> {
-    return $buttonState
+    return $state
       .map { $0 == .expanded }
       .eraseToAnyPublisher()
   }
 
   var isRemoving: AnyPublisher<Bool, Never> {
-    return $buttonState
+    return $state
       .map { $0 == .removing }
       .eraseToAnyPublisher()
   }
 
   var isCreating: AnyPublisher<Bool, Never> {
-    return $buttonState
+    return $state
       .map { $0 == .creating }
       .eraseToAnyPublisher()
   }
@@ -68,8 +59,7 @@ final class HomePageViewModel: ObservableObject {
     self.moc            = moc
 
     self.bills = []
-
-    self.buttonState = .normal
+    self.state = .normal
 
     updateData()
   }
@@ -140,59 +130,43 @@ final class HomePageViewModel: ObservableObject {
 extension HomePageViewModel {
 
   func onCenterAction() {
-    switch buttonState {
+    switch state {
     case .normal:
-      buttonState = .expanded
+      state = .expanded
 
     case .expanded:
-      buttonState = .normal
+      state = .normal
 
     case .removing:
       onStopRemoveBillAction()
 
     case .creating:
-      onCancelBillCreationAction()
+      break
     }
   }
 
-  func onCreateBillAction() {
-    buttonState = .creating
+  func onWantsToCreateBillAction() {
+    state = .creating
   }
 
-  func onConfirmBillCreationAction() {
-    guard let currentCreateBillViewModel else { return }
-
-    if currentCreateBillViewModel.onUserWantsToCreateBill() {
-      buttonState = .normal
-
-      updateData()
-    }
-  }
-
-  func onCancelBillCreationAction() {
-    buttonState = .normal
-
-    currentCreateBillViewModel = nil
-  }
-
-  func onStartRemoveBillAction() {
-    buttonState = .removing
+  func onWantsToRemoveBillAction() {
+    state = .removing
 
     bills.forEach { $0.isRemoving = true }
   }
 
   func onStopRemoveBillAction() {
-    buttonState = .normal
+    state = .normal
 
     bills.forEach { $0.isRemoving = false }
   }
 
   func onDeleteBillAction(_ id: String) {
-    self.deleteBill(id)
+    deleteBill(id)
 
-    self.updateData()
+    updateData()
 
-    if self.bills.isEmpty { onStopRemoveBillAction() }
+    if bills.isEmpty { onStopRemoveBillAction() }
   }
 
 }
@@ -202,9 +176,29 @@ extension HomePageViewModel {
   func makeCreateBillViewModel() -> CreateBillViewModel {
     let viewModel = CreateBillViewModel(moc: moc)
 
-    self.currentCreateBillViewModel = viewModel
+    viewModel.onUserCreatedBill = { [weak self] createdBill in
+      if createdBill {
+        self?.updateData()
+      }
+
+      self?.currentCreateBillViewModel = nil
+      self?.state                      = .normal
+    }
+
+    currentCreateBillViewModel = viewModel
 
     return viewModel
+  }
+
+}
+
+extension HomePageViewModel {
+
+  enum State {
+    case normal
+    case expanded
+    case removing
+    case creating
   }
 
 }

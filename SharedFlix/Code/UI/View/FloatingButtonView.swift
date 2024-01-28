@@ -20,7 +20,7 @@ struct FloatingButtonView: View {
 
       ZStack {
         if isExpanded {
-          Button(action: viewModel.onStartRemoveBillAction) {
+          Button(action: viewModel.onWantsToRemoveBillAction) {
             Image(systemName: "trash")
               .resizable()
               .padding(all: 8)
@@ -34,7 +34,7 @@ struct FloatingButtonView: View {
             y: isExpanded ? 50 * sin(-180 * Double.pi / 180) : 0
           )
 
-          Button(action: viewModel.onCreateBillAction) {
+          Button(action: viewModel.onWantsToCreateBillAction) {
             Image(systemName: "plus")
               .resizable()
               .padding(all: 8)

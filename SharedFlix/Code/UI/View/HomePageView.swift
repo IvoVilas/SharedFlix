@@ -39,42 +39,17 @@ struct HomePageView: View {
           .blur(radius: isExpanded || isCreating ? 3 : 0)
 
           if isCreating {
-            ScrollView {
-              Spacer().frame(height: 72)
-
-              CreateBillView(viewModel: viewModel.makeCreateBillViewModel())
-                .padding(horizontal: 24)
-                .shadow(radius: 5)
-            }
+            CreateBillView(viewModel: viewModel.makeCreateBillViewModel())
+              .padding(horizontal: 24)
+              .shadow(radius: 5)
           }
 
-          HStack(spacing: 24) {
-            FloatingButtonView(viewModel: viewModel)
-
-            if isCreating {
-              VStack {
-                Spacer()
-
-                Button {
-                  withAnimation {
-                    viewModel.onConfirmBillCreationAction()
-                  }
-                } label: {
-                  Image(systemName: "checkmark")
-                    .resizable()
-                    .padding(all: 16)
-                    .frame(width: 60, height: 60)
-                    .background(Theme.ColorPallete.Green.v500)
-                    .foregroundColor(Theme.ColorPallete.White.v100)
-                }
-                .clipShape(Circle())
-              }
-            }
-          }
-          .animation(
-            .spring(response: 0.5, dampingFraction: 0.7, blendDuration: 0),
-            value: isCreating
-          )
+          FloatingButtonView(viewModel: viewModel)
+            .opacity(isCreating ? 0 : 1)
+            .animation(
+              .linear(duration: isCreating ? 0.1 : 0.3),
+              value: isCreating
+            )
         }
       }
       .background(Theme.ColorPallete.Gray.v900)
