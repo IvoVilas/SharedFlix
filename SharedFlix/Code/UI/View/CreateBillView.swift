@@ -21,7 +21,7 @@ struct CreateBillView: View {
           .applyMediumTextStyle(.xl4, Theme.ColorPallete.Blue.v500)
           .growHorizontally(alignment: .center)
 
-        Group {
+        VStack(alignment: .leading, spacing: 8) {
           InputFormView(
             viewModel: viewModel.nameInputViewModel
           )
@@ -32,7 +32,7 @@ struct CreateBillView: View {
           }
         }
 
-        Group {
+        VStack(alignment: .leading, spacing: 8) {
           InputFormView(
             viewModel: viewModel.valueInputViewModel
           )
@@ -43,8 +43,8 @@ struct CreateBillView: View {
           }
         }
 
-        Group {
-          InputListFormView(
+        VStack(alignment: .leading, spacing: 8) {
+          InputListsFormView(
             viewModel: viewModel.participantsInputViewModel
           )
 
@@ -57,10 +57,12 @@ struct CreateBillView: View {
       .padding(all: 24)
       .background(Theme.ColorPallete.White.v100)
       .clipShape(RoundedRectangle(cornerRadius: 20))
-      .sheet(isPresented: $viewModel.showPatientsScreen) {
-        viewModel.availablePeopleViewModel.callCompletion()
-      } content: {
-        AvailablePeopleView(viewModel: viewModel.availablePeopleViewModel)
+      .sheet(item: $viewModel.showPatientsScreen) { activationItem in
+        let viewModel = viewModel.makeAvailablePeopleViewModel(
+          activationItem: activationItem
+        )
+
+        AvailablePeopleView(viewModel: viewModel)
       }
       .background(Theme.ColorPallete.White.v100)
       .clipShape(RoundedRectangle(cornerRadius: 20))

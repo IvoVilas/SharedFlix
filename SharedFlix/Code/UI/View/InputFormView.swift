@@ -84,6 +84,7 @@ struct InputListsFormView<Item: InputListItem>: View {
             section: section
           )
         }
+        .id(viewModel.forceUpdate)
       }
       .scrollIndicators(.hidden)
     }
@@ -255,7 +256,7 @@ private struct FormActionView: View {
                 )
               ]
             ),
-            1
+            limit: 1
           ),
           .normal(
             InputListsFormViewModel.Section(

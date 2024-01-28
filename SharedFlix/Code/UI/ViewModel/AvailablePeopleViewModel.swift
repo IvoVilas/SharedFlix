@@ -11,17 +11,27 @@ import CoreData
 
 final class AvailablePeopleViewModel: ObservableObject {
 
+  private let limit: Int?
   private let moc: NSManagedObjectContext
 
   @Published var people: [PersonModel]
-  @Published var selectedPeople = Set<String>()
+  // Normally I would use Set to faster calls
+  // But when limited, I want to remove the first and add at the end
+  // Because of that I need an array
+  @Published var selectedPeople = [String]()
 
   var completion: (([PersonModel]) -> Void)?
 
+  deinit {
+    print("Deleted viewModel")
+  }
+
   init(
+    limit: Int?,
     moc: NSManagedObjectContext
   ) {
-    self.moc = moc
+    self.limit = limit
+    self.moc   = moc
 
     people         = []
     selectedPeople = []
@@ -35,9 +45,13 @@ final class AvailablePeopleViewModel: ObservableObject {
 
   func selectPerson(_ person: PersonModel) {
     if isPersonSelected(person) {
-      selectedPeople.remove(person.id)
+      selectedPeople.removeAll { $0 == person.id }
+    } else if let limit, selectedPeople.count >= limit {
+      selectedPeople.removeFirst()
+
+      selectedPeople.append(person.id)
     } else {
-      selectedPeople.insert(person.id)
+      selectedPeople.append(person.id)
     }
   }
 

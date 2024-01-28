@@ -55,9 +55,28 @@ struct AvailablePeopleView: View {
 
 }
 
-#Preview {
+#Preview("No limit") {
   AvailablePeopleView(
     viewModel: AvailablePeopleViewModel(
+      limit: nil,
+      moc: PersistenceController.preview.container.viewContext
+    )
+  )
+}
+
+#Preview("Limit 1") {
+  AvailablePeopleView(
+    viewModel: AvailablePeopleViewModel(
+      limit: 1,
+      moc: PersistenceController.preview.container.viewContext
+    )
+  )
+}
+
+#Preview("Limit 3") {
+  AvailablePeopleView(
+    viewModel: AvailablePeopleViewModel(
+      limit: 3,
       moc: PersistenceController.preview.container.viewContext
     )
   )

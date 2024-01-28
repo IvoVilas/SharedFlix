@@ -12,43 +12,21 @@ import Combine
 
 final class CreateBillViewModel: ObservableObject {
 
-  struct Errors {
-    var name: String?
-    var value: String?
-    var participants: String?
-  }
-
-  struct TemporaryBill {
-    var name: String?
-    var value: Double?
-    var cycle: CycleType?
-    var participants: [ParticipantModel] = []
-  }
-
-  struct TemporaryParticipant: InputListItem {
-    let person: PersonModel
-
-    var name: String {
-      return person.name
-    }
-
-    var id: String  {
-      return person.name
-    }
-  }
+  private static let ownerSectionId        = 1
+  private static let participantsSectionId = 2
 
   let moc: NSManagedObjectContext
   let bill: TemporaryBill
 
-  @Published var showPatientsScreen: Bool
+  @Published var showPatientsScreen: ParticipantsActivationItem?
 
   @Published var errors: Errors
 
   @ObservedObject var nameInputViewModel: InputFormViewModel
   @ObservedObject var valueInputViewModel: InputFormViewModel
-  @ObservedObject var participantsInputViewModel: InputListFormViewModel<TemporaryParticipant>
+  @ObservedObject var participantsInputViewModel: InputListsFormViewModel<TemporaryParticipant>
 
-  let availablePeopleViewModel: AvailablePeopleViewModel
+  var availablePeopleViewModel: AvailablePeopleViewModel?
 
   private var observers = Set<AnyCancellable>()
 
@@ -59,7 +37,7 @@ final class CreateBillViewModel: ObservableObject {
     self.bill   = TemporaryBill()
     self.errors = Errors()
 
-    self.showPatientsScreen = false
+    self.showPatientsScreen = nil
 
     self.nameInputViewModel = InputFormViewModel(
       title: "Name",
@@ -72,25 +50,51 @@ final class CreateBillViewModel: ObservableObject {
       keyboardType: .decimalPad
     )
 
-    self.participantsInputViewModel = InputListFormViewModel(
-      title: "Participants",
-      addTitle: "Add participants"
+    self.participantsInputViewModel = InputListsFormViewModel(
+      title: "Participants"
     )
 
-    self.availablePeopleViewModel = AvailablePeopleViewModel(moc: moc)
+    setupAvailablePeople()
+    setupObservers()
+  }
 
-    participantsInputViewModel.action = { [weak self] in
-      self?.showPatientsScreen.toggle()
-    }
+  private func setupAvailablePeople() {
+    let sections: [InputListsFormViewModel.SectionType] = [
+      .limited(
+        .init(
+          id: CreateBillViewModel.ownerSectionId,
+          title: "Owner",
+          actionTitle: "Add owner",
+          items: [TemporaryParticipant](),
+          action: { [weak self] in
+            self?.showPatientsScreen = ParticipantsActivationItem(
+              sectionId: CreateBillViewModel.ownerSectionId,
+              limit: 1
+            )
+          }
+        ),
+        limit: 1
+      ),
+      .normal(
+        .init(
+          id: CreateBillViewModel.participantsSectionId,
+          title: "Participants",
+          actionTitle: "Add participant",
+          items: [TemporaryParticipant](),
+          action: { [weak self] in
+            self?.showPatientsScreen = ParticipantsActivationItem(
+              sectionId: CreateBillViewModel.participantsSectionId,
+              limit: nil
+            )
+          }
+        )
+      )
+    ]
 
-    availablePeopleViewModel.completion = { [weak self] people in
-      guard let self else { return }
+    participantsInputViewModel.setSections(sections)
+  }
 
-      self.showPatientsScreen = false
-
-      self.participantsInputViewModel.setItems(self.makeTemporaryParticipants(people))
-    }
-
+  private func setupObservers() {
     observers.insert(
       nameInputViewModel.$input.sink { [weak self] _ in
         self?.errors.name = nil
@@ -104,7 +108,7 @@ final class CreateBillViewModel: ObservableObject {
     )
 
     observers.insert(
-      participantsInputViewModel.$items.sink { [weak self] _ in
+      participantsInputViewModel.$sections.sink { [weak self] _ in
         self?.errors.participants = nil
       }
     )
@@ -128,7 +132,7 @@ final class CreateBillViewModel: ObservableObject {
       errors.value = "Value must not be empty"
     }
 
-    if participantsInputViewModel.items.isEmpty {
+    if participantsInputViewModel.sections.map({ $0.section.items }).filter({ $0.isEmpty }).count != 0 {
       errors.participants = "Bill must have participants"
     }
 
@@ -144,18 +148,39 @@ final class CreateBillViewModel: ObservableObject {
   }
 
   func createBill() -> Bool {
-    let bill = BillMO(
+    guard let bill = BillMO(
       name: nameInputViewModel.input,
       value: Double(valueInputViewModel.input) ?? 0,
       cycle: .monthly,
       createdAt: Date(),
       moc: moc
-    )
+    ) else {
+      return false
+    }
 
-    for participant in participantsInputViewModel.items {
+    if
+      let owner = participantsInputViewModel.getItems(fromSection: CreateBillViewModel.ownerSectionId).first
+    {
+      // Fetch from database instead of creating
+      if
+        let person = PersonMO(
+          name: owner.name,
+          moc: moc
+        ),
+        let participant = ParticipantMO(
+          isOwner: true,
+          paidUntil: Date(),
+          person: person,
+          bill: bill,
+          moc: moc
+        ) {
+        bill.participants.insert(participant)
+      }
+    }
+
+    for participant in participantsInputViewModel.getItems(fromSection: CreateBillViewModel.participantsSectionId) {
       // Fetch from database instead of creating
       guard
-        let bill,
         let person = PersonMO(
           name: participant.name,
           moc: moc
@@ -183,6 +208,70 @@ final class CreateBillViewModel: ObservableObject {
     }
 
     return true
+  }
+
+  func makeAvailablePeopleViewModel(
+    activationItem: ParticipantsActivationItem
+  ) -> AvailablePeopleViewModel {
+    let viewModel = AvailablePeopleViewModel(
+      limit: activationItem.limit,
+      moc: moc
+    )
+
+    availablePeopleViewModel = viewModel
+
+    viewModel.completion = { [weak self] people in
+      guard let self else {
+        return
+      }
+
+      self.participantsInputViewModel.setItems(
+        self.makeTemporaryParticipants(people),
+        forSection: activationItem.sectionId
+      )
+
+      self.availablePeopleViewModel = nil
+      self.showPatientsScreen       = nil
+    }
+
+    return viewModel
+  }
+
+}
+
+extension CreateBillViewModel {
+
+  struct Errors {
+    var name: String?
+    var value: String?
+    var participants: String?
+  }
+
+  struct TemporaryBill {
+    var name: String?
+    var value: Double?
+    var cycle: CycleType?
+    var participants: [ParticipantModel] = []
+  }
+
+  struct TemporaryParticipant: InputListItem {
+    
+    let person: PersonModel
+
+    var name: String {
+      return person.name
+    }
+
+    var id: String  {
+      return person.name
+    }
+  }
+
+  struct ParticipantsActivationItem: Identifiable {
+    let sectionId: Int
+    let limit: Int?
+
+    var id: Int { sectionId }
   }
 
 }

@@ -65,7 +65,7 @@ final class InputListsFormViewModel<Item: InputListItem>: ObservableObject {
 
   enum SectionType: Identifiable {
     case normal(InputListsFormViewModel.Section)
-    case limited(InputListsFormViewModel.Section, Int)
+    case limited(InputListsFormViewModel.Section, limit: Int)
 
     var section: Section {
       switch self {
@@ -94,10 +94,11 @@ final class InputListsFormViewModel<Item: InputListItem>: ObservableObject {
   let title: String
   
   @Published var sections: [SectionType]
+  @Published var forceUpdate: UUID = UUID()
 
   init(
     title: String,
-    sections: [SectionType]
+    sections: [SectionType] = []
   ) {
     self.title    = title
     self.sections = sections
@@ -127,17 +128,23 @@ final class InputListsFormViewModel<Item: InputListItem>: ObservableObject {
 
     switch sections[index] {
     case .normal:
-      sections.insert(
-        .normal(newSection),
-        at: index
-      )
+      sections[index] = .normal(newSection)
 
     case .limited(_, let limit):
-      sections.insert(
-        .limited(newSection, limit),
-        at: index
-      )
+      sections[index] = .limited(newSection, limit: limit)
     }
+
+    forceUpdate = UUID()
+  }
+
+  func getItems(
+    fromSection sectionId: Int
+  ) -> [Item] {
+    guard let section = sections.first(where: { $0.id == sectionId }) else {
+      return []
+    }
+
+    return section.section.items
   }
 
 }
